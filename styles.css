@@ -801,6 +801,288 @@ img {
     }
 }
 
+/* Use Cases Section */
+.use-cases {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-black);
+    padding: var(--space-7) 0 var(--space-8);
+}
+
+.use-cases__container {
+    max-width: var(--container-default);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.use-cases__header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.use-cases__title {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 4vw, var(--text-3xl));
+    font-weight: 400;
+    color: var(--color-dark-grey);
+}
+
+.use-cases__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+}
+
+.use-cases__card {
+    padding: var(--space-4);
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+}
+
+.use-cases__card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 0;
+    margin-bottom: var(--space-3);
+    color: var(--color-dark-grey);
+}
+
+.use-cases__card-icon--1 {
+    background-color: var(--color-2);
+}
+
+.use-cases__card-icon--2 {
+    background-color: var(--color-4);
+}
+
+.use-cases__card-icon--3 {
+    background-color: var(--color-3);
+}
+
+.use-cases__card-title {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-1);
+}
+
+.use-cases__card-subtitle {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: var(--text-md);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-2);
+}
+
+.use-cases__card-desc {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-base);
+    font-weight: 300;
+    line-height: var(--leading-relaxed);
+    color: var(--color-dark-grey);
+}
+
+@media (max-width: 1024px) {
+    .use-cases__cards {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .use-cases {
+        padding: var(--space-5) 0 var(--space-6);
+    }
+
+    .use-cases__card {
+        padding: var(--space-3);
+    }
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: var(--color-6);
+    border-top: 1px solid var(--color-black);
+    padding: var(--space-7) 0 var(--space-8);
+    overflow: hidden;
+}
+
+.testimonials__container {
+    max-width: var(--container-default);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.testimonials__header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.testimonials__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-3);
+}
+
+.testimonials__title {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 4vw, var(--text-3xl));
+    font-weight: 400;
+    color: var(--color-dark-grey);
+}
+
+.testimonials__cards {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 0 calc(50vw - 50% + var(--space-4));
+}
+
+.testimonials__cards::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonials__card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 700px);
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+.testimonials__card--active {
+    background-color: #FFE8D6;
+}
+
+.testimonials__quote {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: var(--text-md);
+    font-weight: 400;
+    line-height: var(--leading-relaxed);
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+}
+
+.testimonials__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.testimonials__author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-light-grey);
+    flex-shrink: 0;
+}
+
+.testimonials__author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.testimonials__author-name {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-dark-grey);
+}
+
+.testimonials__author-role {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--color-grey);
+}
+
+.testimonials__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.testimonials__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-black);
+    border-radius: 50%;
+    background: var(--color-white);
+    cursor: pointer;
+    color: var(--color-dark-grey);
+    transition: background-color 0.2s ease;
+}
+
+.testimonials__arrow:hover {
+    background-color: var(--color-light-grey);
+}
+
+.testimonials__dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.testimonials__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--color-dark-grey);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease;
+}
+
+.testimonials__dot--active {
+    background-color: var(--color-dark-grey);
+}
+
+@media (max-width: 1024px) {
+    .testimonials__card {
+        width: calc(100vw - 300px);
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonials {
+        padding: var(--space-5) 0 var(--space-6);
+    }
+
+    .testimonials__card {
+        width: calc(100vw - 100px);
+        padding: var(--space-3);
+    }
+}
+
 /* Included Section */
 .included {
     background-color: var(--color-white);
@@ -1043,8 +1325,8 @@ img {
 }
 
 .pricing__card--featured {
-    background-color: var(--color-1);
-    box-shadow: 6px 6px 0 -1px var(--color-1), 6px 6px 0 0 var(--color-black);
+    background-color: #FFFDD0;
+    box-shadow: 6px 6px 0 -1px #FFFDD0, 6px 6px 0 0 var(--color-black);
 }
 
 .pricing__card-badge {
@@ -1247,6 +1529,185 @@ img {
 
     .faq__question {
         font-size: var(--text-md);
+    }
+}
+
+/* Final CTA Section */
+.cta-final {
+    background-color: var(--color-1);
+    border-top: 1px solid var(--color-black);
+    padding: var(--space-8) 0;
+}
+
+.cta-final__container {
+    max-width: var(--container-md);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    text-align: center;
+}
+
+.cta-final__title {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 4vw, var(--text-3xl));
+    font-weight: 400;
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-3);
+}
+
+.cta-final__subtitle {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-base);
+    font-weight: 300;
+    line-height: var(--leading-relaxed);
+    color: var(--color-dark-grey);
+    margin-bottom: var(--space-4);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-final__btn {
+    margin-bottom: var(--space-2);
+}
+
+.cta-final__note {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--color-grey);
+}
+
+@media (max-width: 640px) {
+    .cta-final {
+        padding: var(--space-6) 0;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+    padding: var(--space-7) 0 var(--space-4);
+}
+
+.footer__container {
+    max-width: var(--container-default);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.footer__main {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer__brand {
+    max-width: 300px;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: var(--space-2);
+}
+
+.footer__logo-icon {
+    color: var(--color-white);
+}
+
+.footer__tagline {
+    font-family: 'EB Garamond', Georgia, "Times New Roman", serif;
+    font-size: var(--text-md);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__links {
+    display: flex;
+    gap: var(--space-6);
+}
+
+.footer__column {
+    min-width: 140px;
+}
+
+.footer__column-title {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer__list {
+    list-style: none;
+}
+
+.footer__list li {
+    margin-bottom: var(--space-1);
+}
+
+.footer__list a {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-base);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+}
+
+.footer__list a:hover {
+    color: var(--color-white);
+}
+
+.footer__bottom {
+    padding-top: var(--space-4);
+}
+
+.footer__copyright {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .footer__main {
+        flex-direction: column;
+        gap: var(--space-5);
+    }
+
+    .footer__brand {
+        max-width: 100%;
+    }
+
+    .footer__links {
+        flex-wrap: wrap;
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: var(--space-5) 0 var(--space-3);
+    }
+
+    .footer__links {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .footer__column {
+        min-width: auto;
     }
 }
 
