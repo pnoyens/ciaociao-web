@@ -9,7 +9,7 @@ const features = [
     ),
     sidebarColor: "bg-cc-peach",
     title: "Brand Intelligence Core",
-    subtitle: "Understand Your DNA.",
+    subtitle: "Understand your DNA",
     description: "Provide your website URL, and our AI extracts your core values, keywords, and ideal customer profile. We build the foundation for a winning social strategy tailored to your brand.",
   },
   {
@@ -22,7 +22,7 @@ const features = [
     ),
     sidebarColor: "bg-cc-gold",
     title: "Social Listening Engine",
-    subtitle: "24/7 Conversation Monitoring.",
+    subtitle: "24/7 conversation monitoring",
     description: "Our engine continuously scans LinkedIn, identifying discussions that matter to your business. We filter thousands of posts to surface only the opportunities worth your attention.",
   },
   {
@@ -35,7 +35,7 @@ const features = [
     ),
     sidebarColor: "bg-cc-3",
     title: "SocialTemp™ Score",
-    subtitle: "Relationship Intelligence.",
+    subtitle: "Relationship intelligence",
     description: "Know exactly how receptive a prospect is to your brand. Our AI-powered scoring gives you the confidence to engage at the optimal moment, maximizing your success rate.",
   },
   {
@@ -48,7 +48,7 @@ const features = [
     ),
     sidebarColor: "bg-cc-4",
     title: "Engagement & Action Module",
-    subtitle: "Seamless Integration.",
+    subtitle: "Seamless integration",
     description: "Get AI-powered suggestions for comments and posts. Engage directly from our platform and track engagement metrics as your relationships deepen over time.",
   },
   {
@@ -62,7 +62,7 @@ const features = [
     ),
     sidebarColor: "bg-cc-2",
     title: "Reverse Lookup",
-    subtitle: "Target Specific Prospects.",
+    subtitle: "Target specific prospects",
     description: "Have someone in mind? Add them manually, and we'll use advanced search to find their social activity and calculate their initial SocialTemp™ Score, helping you plan your approach.",
   }
 ];
@@ -95,7 +95,7 @@ export default function Features() {
               <div className="flex-1 py-5 pr-[30px] flex flex-col gap-3">
                 <h3 className="font-serif text-[28px] font-semibold text-cc-dark leading-tight">{feature.title}</h3>
                 <p className="text-base font-light leading-relaxed text-cc-dark">{feature.description}</p>
-                <span className="pill self-start">{feature.subtitle}</span>
+                <span className="pill check-icon self-start">{feature.subtitle}</span>
               </div>
             </div>
           ))}
