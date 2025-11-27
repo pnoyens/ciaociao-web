@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-black">
       <div className="flex items-center justify-between max-w-[1380px] mx-auto px-10 h-[75px]">
-        <Link href="/" className="flex items-center gap-2.5 text-2xl font-semibold text-cc-dark">
+        <Link href="/" className="flex items-center gap-2.5 text-2xl text-cc-dark">
           <svg
             className="text-cc-dark"
             width="32"
@@ -24,7 +24,7 @@ export default function Header() {
               strokeLinecap="round"
             />
           </svg>
-          <span>CiaoCiao</span>
+          <span className="font-serif font-normal">CiaoCiao</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-10">

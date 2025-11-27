@@ -26,13 +26,13 @@ export default function Footer() {
       <div className="max-w-[1380px] mx-auto px-10">
         <div className="flex flex-col lg:flex-row justify-between gap-[80px] pb-[80px] border-b border-white/20">
           <div className="max-w-[300px] lg:max-w-none">
-            <Link href="/" className="flex items-center gap-2.5 text-2xl font-semibold text-white mb-3">
+            <Link href="/" className="flex items-center gap-2.5 text-2xl text-white mb-3">
               <svg className="text-white" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10" cy="12" r="3" fill="currentColor" />
                 <circle cx="22" cy="12" r="3" fill="currentColor" />
                 <path d="M8 20C8 20 12 26 16 26C20 26 24 20 24 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
-              <span>CiaoCiao</span>
+              <span className="font-serif font-normal">CiaoCiao</span>
             </Link>
             <p className="font-serif text-xl font-normal italic text-white/70">Stop chasing. Start building your pack.</p>
           </div>
@@ -80,11 +80,11 @@ export default function Footer() {
         </div>
 
         <div className="pt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-sm font-light text-white/50">
+          <p className="text-sm font-light text-white/70">
             © 2025 Raamwerk Apps VOF. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-sm font-light text-white/50">
-            <span>CiaoCiao is a</span>
+          <div className="flex items-center gap-2 text-sm font-light text-white/70">
+            <span><span className="font-serif">CiaoCiao</span> is a</span>
             <a href="https://www.raamwerk.co" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/img/raamwerk-logo-white.webp"
