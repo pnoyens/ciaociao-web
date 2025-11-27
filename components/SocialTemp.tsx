@@ -46,12 +46,28 @@ export default function SocialTemp() {
   return (
     <section className="bg-white border-t border-black py-[100px]" id="socialtemp">
       <div className="max-w-[1380px] mx-auto px-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Gauge Visual Placeholder */}
-          <div className="flex items-center justify-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left: Gauge Visual Placeholder + Scale Box */}
+          <div className="flex flex-col gap-8">
             {/* Placeholder: Animated gauge transitioning from cool blue to warm orange */}
-            <div className="w-full h-full max-w-[500px] max-h-[450px] aspect-[5/4] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
+            <div className="w-full max-w-[500px] aspect-[5/4] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
               <span className="text-lg font-light text-cc-grey">Image placeholder</span>
+            </div>
+
+            {/* The SocialTemp Scale - in a box */}
+            <div className="border border-black p-8 max-w-[500px]">
+              <h3 className="font-serif text-xl font-normal text-cc-dark mb-5">The SocialTemp™ Scale:</h3>
+              <div className="space-y-3">
+                {scaleItems.map((item, index) => (
+                  <div key={index} className="flex gap-3 items-start">
+                    <div className={`w-3 h-3 rounded-full ${item.color} mt-1.5 shrink-0 border border-black/20`}></div>
+                    <div>
+                      <span className="font-medium text-sm text-cc-dark">{item.range}:</span>{" "}
+                      <span className="font-light text-sm text-cc-dark">{item.description}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -64,7 +80,7 @@ export default function SocialTemp() {
             </p>
 
             {/* What We Analyze */}
-            <div className="mb-10">
+            <div>
               <h3 className="font-serif text-2xl font-normal text-cc-dark mb-6">What We Analyze:</h3>
               <div className="space-y-4">
                 {analyzeItems.map((item, index) => (
@@ -72,22 +88,6 @@ export default function SocialTemp() {
                     <div className="w-2 h-2 rounded-full bg-cc-dark mt-2.5 shrink-0"></div>
                     <div>
                       <span className="font-medium text-cc-dark">{item.title}:</span>{" "}
-                      <span className="font-light text-cc-dark">{item.description}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* The SocialTemp Scale */}
-            <div>
-              <h3 className="font-serif text-2xl font-normal text-cc-dark mb-6">The SocialTemp™ Scale:</h3>
-              <div className="space-y-4">
-                {scaleItems.map((item, index) => (
-                  <div key={index} className="flex gap-3 items-start">
-                    <div className={`w-4 h-4 rounded-full ${item.color} mt-1 shrink-0 border border-black/20`}></div>
-                    <div>
-                      <span className="font-medium text-cc-dark">{item.range}:</span>{" "}
                       <span className="font-light text-cc-dark">{item.description}</span>
                     </div>
                   </div>
