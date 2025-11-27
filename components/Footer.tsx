@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   navigation: [
@@ -78,10 +79,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-10">
+        <div className="pt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-sm font-light text-white/50">
-            © 2025 Raamwerk Apps VOF. All rights reserved. CiaoCiao is a product of Raamwerk.
+            © 2025 Raamwerk Apps VOF. All rights reserved.
           </p>
+          <div className="flex items-center gap-2 text-sm font-light text-white/50">
+            <span>CiaoCiao is a product of</span>
+            <Image
+              src="/img/raamwerk-logo-white.webp"
+              alt="Raamwerk"
+              width={100}
+              height={24}
+              className="opacity-50 hover:opacity-70 transition-opacity"
+            />
+          </div>
         </div>
       </div>
     </footer>
