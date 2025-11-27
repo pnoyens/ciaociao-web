@@ -94,8 +94,8 @@ export default function Features() {
               </div>
               <div className="flex-1 py-5 pr-[30px] flex flex-col gap-3">
                 <h3 className="font-serif text-[28px] font-semibold text-cc-dark leading-tight">{feature.title}</h3>
-                <p className="text-lg font-medium text-cc-dark">{feature.subtitle}</p>
                 <p className="text-base font-light leading-relaxed text-cc-dark">{feature.description}</p>
+                <span className="pill self-start">{feature.subtitle}</span>
               </div>
             </div>
           ))}
