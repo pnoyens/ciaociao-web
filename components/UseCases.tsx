@@ -3,25 +3,16 @@ const useCases = [
     title: "For startup founders",
     subtitle: "Build your brand from day one.",
     description: "You're launching something new and need to establish credibility fast. CiaoCiao helps you identify early adopters, thought leaders, and potential evangelists. Build meaningful relationships before you even think about selling.",
-    stat: "+3x",
-    statLabel: "Network Growth",
-    color: "bg-cc-2",
   },
   {
     title: "For marketing teams",
     subtitle: "Turn awareness into advocacy.",
     description: "You've built brand awareness—now convert it into genuine engagement. CiaoCiao identifies people already discussing your industry and guides you to join conversations that matter. It's relationship marketing with intelligence.",
-    stat: "+47%",
-    statLabel: "Engagement Rate",
-    color: "bg-cc-4",
   },
   {
     title: "For sales leaders",
     subtitle: "Warm up every outreach.",
     description: "Cold calling is dead. Your team needs warm leads, not cold prospects. CiaoCiao finds people showing genuine interest and tells you exactly when to make your move. Higher conversion rates, better pipeline quality.",
-    stat: "+62%",
-    statLabel: "Conversion Uplift",
-    color: "bg-cc-3",
   }
 ];
 
@@ -48,39 +39,25 @@ export default function UseCases() {
                 key={index}
                 className="border border-black bg-white"
               >
-                <div className={`grid lg:grid-cols-2 min-h-[600px] ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
+                <div className={`grid lg:grid-cols-2 min-h-[700px] ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
                   {/* Content */}
-                  <div className={`flex flex-col justify-center p-12 lg:p-20 ${!isEven ? 'lg:col-start-2' : ''}`}>
-                    <h3 className="font-serif text-4xl lg:text-5xl font-normal text-cc-dark mb-3">
+                  <div className={`flex flex-col justify-center p-10 lg:p-16 ${!isEven ? 'lg:col-start-2' : ''}`}>
+                    <h3 className="font-serif text-2xl lg:text-3xl font-normal text-cc-dark mb-2">
                       {useCase.title}
                     </h3>
-                    <p className="font-serif text-2xl lg:text-3xl font-normal italic text-cc-grey mb-8">
+                    <p className="font-serif text-lg lg:text-xl font-normal italic text-cc-grey mb-6">
                       {useCase.subtitle}
                     </p>
-                    <p className="text-xl font-light leading-relaxed text-cc-dark max-w-[520px]">
+                    <p className="text-base font-light leading-relaxed text-cc-dark max-w-[420px]">
                       {useCase.description}
                     </p>
                   </div>
 
                   {/* Visual placeholder */}
-                  <div className={`relative overflow-hidden ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    {/* Placeholder content with margin */}
-                    <div className="h-full min-h-[450px] flex items-center justify-center p-12 lg:p-16">
-                      {/* Placeholder: Use case illustration */}
-                      <div className="w-full h-full max-w-[450px] max-h-[400px] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
-                        <span className="text-lg font-light text-cc-grey">Image placeholder</span>
-                      </div>
-
-                      {/* Stat badge */}
-                      <div className="absolute bottom-10 right-10 bg-cc-5 border border-black px-5 py-4">
-                        <div className="flex items-center gap-2">
-                          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                          <span className="text-4xl font-semibold text-cc-dark">{useCase.stat}</span>
-                        </div>
-                        <p className="text-sm text-cc-dark mt-1">{useCase.statLabel}</p>
-                      </div>
+                  <div className={`flex items-center justify-center p-10 lg:p-12 ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+                    {/* Placeholder: Use case illustration */}
+                    <div className="w-full h-full max-w-[550px] max-h-[550px] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
+                      <span className="text-lg font-light text-cc-grey">Image placeholder</span>
                     </div>
                   </div>
                 </div>
