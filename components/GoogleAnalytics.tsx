@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GoogleAnalytics as GA } from "@next/third-parties/google";
 
-const GA_ID = "G-514367434";
+const GA_ID = "G-0Q7VNLJWB7";
 
 export default function GoogleAnalytics() {
   const [hasConsent, setHasConsent] = useState(false);
