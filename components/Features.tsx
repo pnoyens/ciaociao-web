@@ -92,7 +92,7 @@ export default function Features() {
                   {feature.icon}
                 </div>
               </div>
-              <div className="flex-1 py-5 pr-[30px] flex flex-col gap-3">
+              <div className="flex-1 py-8 pr-[30px] pl-6 flex flex-col gap-3">
                 <h3 className="font-serif text-[28px] font-semibold text-cc-dark leading-tight">{feature.title}</h3>
                 <p className="text-base font-light leading-relaxed text-cc-dark">{feature.description}</p>
                 <span className="pill check-icon self-start">{feature.subtitle}</span>
