@@ -86,13 +86,13 @@ export default function Features() {
 
         <div className="flex flex-col gap-[60px]">
           {features.map((feature, index) => (
-            <div key={index} className="flex flex-col sm:flex-row items-start gap-6 bg-cc-card card-shadow">
+            <div key={index} className="flex flex-col sm:flex-row items-start bg-cc-card card-shadow">
               <div className={`flex items-center justify-center p-2.5 w-[100px] h-[100px] shrink-0 ${feature.sidebarColor}`}>
                 <div className="w-full h-full flex items-center justify-center text-cc-dark bg-white">
                   {feature.icon}
                 </div>
               </div>
-              <div className="flex-1 py-8 pr-[30px] pl-6 flex flex-col gap-3">
+              <div className="flex-1 py-8 pr-[30px] pl-10 flex flex-col gap-3">
                 <h3 className="font-serif text-[28px] font-semibold text-cc-dark leading-tight">{feature.title}</h3>
                 <p className="text-base font-light leading-relaxed text-cc-dark">{feature.description}</p>
                 <span className="pill check-icon self-start">{feature.subtitle}</span>
