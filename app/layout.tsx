@@ -37,33 +37,24 @@ export const metadata: Metadata = {
   authors: [{ name: "CiaoCiao" }],
   creator: "CiaoCiao",
   publisher: "CiaoCiao",
-  metadataBase: new URL("https://ciaociao.ai"),
+  metadataBase: new URL("https://ciaociao.social"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ciaociao.ai",
+    url: "https://ciaociao.social",
     siteName: "CiaoCiao",
     title: "CiaoCiao - Stop chasing. Start building your pack.",
     description:
       "Discover the right conversations on LinkedIn before you reach out. Our AI-powered SocialTemp™ Score helps you turn cold outreach into warm relationships.",
-    images: [
-      {
-        url: "/img/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "CiaoCiao - LinkedIn Relationship Intelligence",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "CiaoCiao - Stop chasing. Start building your pack.",
     description:
       "Discover the right conversations on LinkedIn before you reach out. Turn cold outreach into warm relationships with AI-powered relationship intelligence.",
-    images: ["/img/og-image.png"],
   },
   robots: {
     index: true,
@@ -76,13 +67,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-  },
 };
 
 export default function RootLayout({
@@ -90,23 +74,85 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "CiaoCiao",
+    url: "https://ciaociao.social",
+    logo: "https://ciaociao.social/img/logo/chow-chow-logo-512.png",
+    description:
+      "AI-powered LinkedIn relationship intelligence platform that helps you discover the right conversations and build warm relationships with future customers.",
+    sameAs: [],
+  };
+
+  const softwareJsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "CiaoCiao",
     applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Sales & Marketing",
     description:
       "AI-powered LinkedIn relationship intelligence platform that helps you discover the right conversations and build warm relationships with future customers.",
     operatingSystem: "Web",
+    url: "https://ciaociao.social",
     offers: {
-      "@type": "Offer",
-      price: "49",
+      "@type": "AggregateOffer",
       priceCurrency: "USD",
+      lowPrice: "49",
+      highPrice: "149",
+      offerCount: "3",
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Starter",
+          price: "49",
+          priceCurrency: "USD",
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+          description:
+            "Perfect for solo founders and small teams getting started. Includes 1 brand, 300 discussions/month, 50 prospects tracked.",
+        },
+        {
+          "@type": "Offer",
+          name: "Professional",
+          price: "149",
+          priceCurrency: "USD",
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+          description:
+            "For growing businesses serious about relationship-driven growth. Includes 3 brands, 1,500 discussions/month, 250 prospects tracked.",
+        },
+        {
+          "@type": "Offer",
+          name: "Enterprise",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          description:
+            "Custom pricing for organizations that need unlimited scale and dedicated support.",
+        },
+      ],
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "150",
+    featureList: [
+      "AI-powered social listening",
+      "SocialTemp™ relationship scoring",
+      "LinkedIn conversation discovery",
+      "Prospect tracking",
+      "Reverse lookup",
+      "Engagement suggestions",
+    ],
+  };
+
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "CiaoCiao",
+    url: "https://ciaociao.social",
+    description:
+      "Stop chasing. Start building your pack. Discover the right conversations on LinkedIn before you reach out.",
+    publisher: {
+      "@type": "Organization",
+      name: "CiaoCiao",
     },
   };
 
@@ -115,7 +161,15 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
       </head>
       <body className={inter.className}>{children}</body>
