@@ -4,6 +4,7 @@ import Insights from "@/components/Insights";
 import HowItWorks from "@/components/HowItWorks";
 import UseCases from "@/components/UseCases";
 import Testimonials from "@/components/Testimonials";
+import SocialTemp from "@/components/SocialTemp";
 import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -20,6 +21,7 @@ export default function Home() {
         <HowItWorks />
         <UseCases />
         <Testimonials />
+        <SocialTemp />
         <Features />
         <Pricing />
         <FAQ />
