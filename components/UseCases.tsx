@@ -48,7 +48,7 @@ export default function UseCases() {
                 key={index}
                 className="border border-black bg-white"
               >
-                <div className={`grid lg:grid-cols-2 min-h-[500px] ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
+                <div className={`grid lg:grid-cols-2 min-h-[600px] ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
                   {/* Content */}
                   <div className={`flex flex-col justify-center p-12 lg:p-20 ${!isEven ? 'lg:col-start-2' : ''}`}>
                     <h3 className="font-serif text-4xl lg:text-5xl font-normal text-cc-dark mb-3">
@@ -65,10 +65,10 @@ export default function UseCases() {
                   {/* Visual placeholder */}
                   <div className={`relative overflow-hidden ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
                     {/* Placeholder content with margin */}
-                    <div className="h-full min-h-[350px] flex items-center justify-center p-12 lg:p-16">
+                    <div className="h-full min-h-[450px] flex items-center justify-center p-12 lg:p-16">
                       {/* Placeholder: Use case illustration */}
-                      <div className={`w-full max-w-[400px] aspect-[4/3] ${useCase.color} flex items-center justify-center border border-black/10`}>
-                        <span className="text-cc-dark/50 text-sm">Image placeholder</span>
+                      <div className="w-full h-full max-w-[450px] max-h-[400px] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
+                        <span className="text-lg font-light text-cc-grey">Image placeholder</span>
                       </div>
 
                       {/* Stat badge */}

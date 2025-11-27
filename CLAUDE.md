@@ -89,17 +89,21 @@ npm run lint     # Run ESLint
 
 **All images will be provided manually.** When creating components that require images:
 
-- Use placeholder divs with appropriate dimensions and background colors
+- Use the standard placeholder style with rounded corners
+- Background color: `bg-[#e8e4e0]` (warm grey)
+- Border radius: `rounded-[20px]`
+- Centered text: `text-lg font-light text-cc-grey`
 - Add descriptive comments indicating what image should go there
-- Use theme colors (e.g., `bg-cc-light`, `bg-cc-6`) for placeholder backgrounds
 
 Example:
 ```tsx
-{/* Placeholder: Product screenshot - 600x400 */}
-<div className="w-full aspect-[3/2] bg-cc-light flex items-center justify-center">
-  <span className="text-cc-grey text-sm">Image placeholder</span>
+{/* Placeholder: Product screenshot */}
+<div className="w-full h-full max-w-[500px] max-h-[500px] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
+  <span className="text-lg font-light text-cc-grey">Image placeholder</span>
 </div>
 ```
+
+This style is used consistently across Hero, Use Cases, and other sections.
 
 ## Do Not
 
