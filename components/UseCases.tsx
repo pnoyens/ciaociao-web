@@ -62,22 +62,10 @@ export default function UseCases() {
                     </p>
                   </div>
 
-                  {/* Visual placeholder with grid pattern */}
+                  {/* Visual placeholder */}
                   <div className={`relative overflow-hidden ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    {/* Grid pattern background */}
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '32px 32px'
-                      }}
-                    />
-
                     {/* Placeholder content with margin */}
-                    <div className="relative h-full min-h-[350px] flex items-center justify-center p-12 lg:p-16">
+                    <div className="h-full min-h-[350px] flex items-center justify-center p-12 lg:p-16">
                       {/* Placeholder: Use case illustration */}
                       <div className={`w-full max-w-[400px] aspect-[4/3] ${useCase.color} flex items-center justify-center border border-black/10`}>
                         <span className="text-cc-dark/50 text-sm">Image placeholder</span>
