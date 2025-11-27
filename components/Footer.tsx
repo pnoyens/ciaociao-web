@@ -85,13 +85,15 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2 text-sm font-light text-white/50">
             <span>CiaoCiao is a</span>
-            <Image
-              src="/img/raamwerk-logo-white.webp"
-              alt="Raamwerk"
-              width={100}
-              height={24}
-              className="opacity-50 hover:opacity-70 transition-opacity"
-            />
+            <a href="https://www.raamwerk.co" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/img/raamwerk-logo-white.webp"
+                alt="Raamwerk"
+                width={100}
+                height={24}
+                className="brightness-100 hover:brightness-125 transition-all"
+              />
+            </a>
             <span>product.</span>
           </div>
         </div>
