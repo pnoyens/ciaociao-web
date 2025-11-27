@@ -1,20 +1,22 @@
 "use client";
 
+import Image from "next/image";
+
 const analyzeItems = [
   {
-    title: "Brand Mentions",
+    title: "Brand mentions",
     description: "Are they discussing your company or industry? We track every reference.",
   },
   {
-    title: "Discussion Participation",
+    title: "Discussion participation",
     description: "How actively are they engaging in relevant conversations?",
   },
   {
-    title: "Sentiment Signals",
+    title: "Sentiment signals",
     description: "Is their tone positive, critical, or neutral toward topics you care about?",
   },
   {
-    title: "Interaction History",
+    title: "Interaction history",
     description: "Have you crossed paths before? We remember every digital touchpoint.",
   },
 ];
@@ -44,19 +46,24 @@ const scaleItems = [
 
 export default function SocialTemp() {
   return (
-    <section className="bg-white border-t border-black py-[100px]" id="socialtemp">
-      <div className="max-w-[1380px] mx-auto px-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+    <section className="bg-white border-t border-black py-12 md:py-[100px]" id="socialtemp">
+      <div className="max-w-[1380px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* Left: Gauge Visual Placeholder + Scale Box */}
           <div className="flex flex-col gap-8">
-            {/* Placeholder: Animated gauge transitioning from cool blue to warm orange */}
-            <div className="w-full max-w-[500px] aspect-[5/4] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
-              <span className="text-lg font-light text-cc-grey">Image placeholder</span>
+            {/* Gauge visual */}
+            <div className="w-full max-w-[500px] aspect-[5/4] relative">
+              <Image
+                src="/img/gauge.png"
+                alt="SocialTemp gauge"
+                fill
+                className="object-contain"
+              />
             </div>
 
             {/* The SocialTemp Scale */}
             <div className="max-w-[500px]">
-              <h3 className="font-serif text-xl font-normal text-cc-dark mb-5">The SocialTemp™ Scale:</h3>
+              <h3 className="font-serif text-xl font-normal text-cc-dark mb-5">The SocialTemp™ scale:</h3>
               <div className="space-y-3">
                 {scaleItems.map((item, index) => (
                   <div key={index} className="flex gap-3 items-start">
@@ -73,15 +80,15 @@ export default function SocialTemp() {
 
           {/* Right: Content */}
           <div>
-            <h2 className="section-title mb-6">Know When the Moment Is Right.</h2>
-            <p className="body-text mb-10">
+            <h2 className="section-title mb-4 md:mb-6">Know when the moment is right.</h2>
+            <p className="body-text mb-8 md:mb-10">
               In modern business, timing is everything. The SocialTemp™ Score is our proprietary AI metric
               that measures how receptive a prospect is to your brand. Stop guessing and start knowing.
             </p>
 
             {/* What We Analyze */}
             <div>
-              <h3 className="font-serif text-2xl font-normal text-cc-dark mb-6">What We Analyze:</h3>
+              <h3 className="font-serif text-2xl font-normal text-cc-dark mb-6">What we analyze:</h3>
               <div className="space-y-4">
                 {analyzeItems.map((item, index) => (
                   <div key={index} className="flex gap-3">

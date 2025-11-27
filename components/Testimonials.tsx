@@ -1,127 +1,167 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
     quote: "We used to spend hours manually searching for relevant conversations. CiaoCiao brings them straight to us, and the SocialTemp™ Score tells us exactly when to engage. Our conversion rates have doubled.",
     name: "Sarah Martinez",
     role: "Marketing Manager, TechFlow",
+    image: "/img/testimonials/sarah-martinez.jpg",
   },
   {
     quote: "I was tired of aggressive automation tools that felt spammy. CiaoCiao is different—it's about building real connections with real people. Our LinkedIn engagement has never been higher, and lead quality has improved dramatically.",
-    name: "David Chen",
+    name: "Daniel Peterson",
     role: "Founder, GrowthLab",
+    image: "/img/testimonials/daniel-peterson.jpg",
   },
   {
     quote: "CiaoCiao pays for itself in the first week. The time we save on social listening alone is worth the investment, but the quality of relationships we're building is what really matters. This is the future of B2B sales.",
     name: "Emily Rodriguez",
     role: "VP of Sales, CloudScale",
+    image: "/img/testimonials/emily-rodriguez.jpg",
   },
 ];
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(1);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const numOriginal = testimonials.length;
 
+  // Check for mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Clone first and last items for infinite scroll
   const extendedTestimonials = [
     testimonials[numOriginal - 1],
     ...testimonials,
     testimonials[0],
   ];
 
-  const scrollToCard = useCallback((index: number, smooth = true) => {
-    if (!carouselRef.current) return;
-    const cards = carouselRef.current.querySelectorAll("[data-card]");
-    if (cards[index]) {
-      cards[index].scrollIntoView({
-        behavior: smooth ? "smooth" : "instant",
-        inline: "center",
-        block: "nearest",
-      });
-    }
+  // Responsive card width: 85vw on mobile, 53vw on desktop
+  const cardWidth = isMobile ? 85 : 53; // vw
+  const gap = isMobile ? 16 : 40; // px
+  const sideOffset = (100 - cardWidth) / 2;
+
+  const getTransform = useCallback((index: number) => {
+    // Center the card: move left by (index * cardWidth) + (index * gap), then offset to center
+    return `translateX(calc(-${index * cardWidth}vw - ${index * gap}px + ${sideOffset}vw))`;
+  }, [cardWidth, gap, sideOffset]);
+
+  const goToSlide = useCallback((index: number, animate = true) => {
+    setIsTransitioning(animate);
     setCurrentIndex(index);
   }, []);
 
-  const checkBounds = useCallback(() => {
-    if (currentIndex === 0) {
-      setTimeout(() => scrollToCard(numOriginal, false), 350);
-    } else if (currentIndex === numOriginal + 1) {
-      setTimeout(() => scrollToCard(1, false), 350);
-    }
-  }, [currentIndex, numOriginal, scrollToCard]);
-
   const handlePrev = () => {
-    scrollToCard(currentIndex - 1);
-    setTimeout(checkBounds, 400);
+    if (isTransitioning) return; // Prevent rapid clicks
+    goToSlide(currentIndex - 1, true);
   };
 
   const handleNext = () => {
-    scrollToCard(currentIndex + 1);
-    setTimeout(checkBounds, 400);
+    if (isTransitioning) return; // Prevent rapid clicks
+    goToSlide(currentIndex + 1, true);
   };
 
+  // Handle transition end and infinite scroll wrap-around
   useEffect(() => {
-    scrollToCard(1, false);
-  }, [scrollToCard]);
+    if (!isTransitioning) return;
 
+    const timeout = setTimeout(() => {
+      if (currentIndex === 0) {
+        // At clone before first, jump to real last
+        setIsTransitioning(false);
+        setCurrentIndex(numOriginal);
+      } else if (currentIndex === numOriginal + 1) {
+        // At clone after last, jump to real first
+        setIsTransitioning(false);
+        setCurrentIndex(1);
+      } else {
+        // Normal transition complete
+        setIsTransitioning(false);
+      }
+    }, 400);
+
+    return () => clearTimeout(timeout);
+  }, [currentIndex, numOriginal, isTransitioning]);
+
+  // Calculate real index for dots (0, 1, 2)
   const realIndex = ((currentIndex - 1) % numOriginal + numOriginal) % numOriginal;
 
   return (
-    <section className="bg-cc-6 border-t border-black py-[100px] overflow-hidden" id="testimonials">
-      <div className="max-w-[1380px] mx-auto px-10">
-        <div className="text-center mb-[80px]">
-          <span className="badge bg-cc-dark text-white mb-[26px]">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1L8.5 4.5L12 5L9.5 7.5L10 11L7 9.5L4 11L4.5 7.5L2 5L5.5 4.5L7 1Z" fill="currentColor"/>
-            </svg>
+    <section className="bg-cc-6 border-t border-black py-12 md:py-[100px] overflow-hidden" id="testimonials">
+      <div className="max-w-[1380px] mx-auto px-5 md:px-10">
+        <div className="text-center mb-10 md:mb-[80px]">
+          <span className="badge bg-cc-dark text-white mb-5 md:mb-[26px]">
+            <Star size={14} fill="currentColor" />
             TRUSTED BY MODERN GTM TEAMS
           </span>
           <h2 className="section-title">Helping teams like yours build real relationships</h2>
         </div>
+      </div>
 
+      {/* Carousel viewport - full width, independent of container padding */}
+      <div className="overflow-hidden">
         <div
-          ref={carouselRef}
-          className="flex gap-10 overflow-x-auto scroll-snap-x-mandatory hide-scrollbar -mx-[calc(50vw-50%)] px-[calc(50vw-50%+40px)]"
+          className="flex"
+          style={{
+            gap: `${gap}px`,
+            transform: getTransform(currentIndex),
+            transition: isTransitioning ? "transform 0.4s ease-out" : "none",
+          }}
         >
           {extendedTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              data-card
-              className={`flex flex-col p-10 border border-black w-[calc(100vw-700px)] min-w-[300px] max-w-[600px] shrink-0 snap-center ${
+              className={`flex flex-col p-6 md:p-10 border border-black shrink-0 transition-colors duration-300 ${
                 index === currentIndex ? "bg-cc-highlight" : "bg-white"
               }`}
+              style={{ width: `${cardWidth}vw` }}
             >
-              <p className="font-serif text-xl font-normal leading-relaxed text-cc-dark mb-10 grow">
+              <p className="font-serif text-base md:text-xl font-normal leading-relaxed text-cc-dark mb-6 md:mb-10 grow">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-cc-light shrink-0"></div>
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cc-light shrink-0 relative overflow-hidden">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="flex flex-col gap-0.5">
-                  <p className="text-lg font-medium text-cc-dark">{testimonial.name}</p>
-                  <p className="text-sm font-light text-cc-grey">{testimonial.role}</p>
+                  <p className="text-base md:text-lg font-medium text-cc-dark">{testimonial.name}</p>
+                  <p className="text-xs md:text-sm font-light text-cc-grey">{testimonial.role}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
 
-        <div className="flex items-center justify-center gap-[26px] mt-10">
+      <div className="max-w-[1380px] mx-auto px-5 md:px-10">
+        <div className="flex items-center justify-center gap-4 md:gap-[26px] mt-8 md:mt-10">
           <button
             onClick={handlePrev}
             className="flex items-center justify-center w-11 h-11 border border-black rounded-full bg-white text-cc-dark cursor-pointer hover:bg-cc-light transition-colors"
             aria-label="Previous testimonial"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronLeft size={24} strokeWidth={1.5} />
           </button>
           <div className="flex items-center gap-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => scrollToCard(index + 1)}
+                onClick={() => goToSlide(index + 1, true)}
                 className={`w-2.5 h-2.5 rounded-full border border-cc-dark p-0 cursor-pointer transition-colors ${
                   index === realIndex ? "bg-cc-dark" : "bg-transparent"
                 }`}
@@ -134,9 +174,7 @@ export default function Testimonials() {
             className="flex items-center justify-center w-11 h-11 border border-black rounded-full bg-white text-cc-dark cursor-pointer hover:bg-cc-light transition-colors"
             aria-label="Next testimonial"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight size={24} strokeWidth={1.5} />
           </button>
         </div>
       </div>

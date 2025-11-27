@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
@@ -39,24 +40,21 @@ function FAQItem({ question, answer, isOpen, onClick }: {
   return (
     <div className="border-b border-black first:border-t">
       <button
-        className="flex items-center justify-between gap-[26px] w-full py-[26px] font-serif text-2xl font-medium text-cc-dark cursor-pointer bg-transparent border-none text-left hover:text-cc-grey transition-colors"
+        className="flex items-center justify-between gap-4 md:gap-[26px] w-full py-5 md:py-[26px] font-serif text-lg md:text-2xl font-medium text-cc-dark cursor-pointer bg-transparent border-none text-left hover:text-cc-grey transition-colors"
         onClick={onClick}
         aria-expanded={isOpen}
       >
         {question}
-        <span className={`faq-icon flex items-center justify-center shrink-0 w-6 h-6 ${isOpen ? "faq-icon-open" : ""}`}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line
-              x1="10" y1="4" x2="10" y2="16"
-              stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-              className={`transition-all duration-200 ${isOpen ? "opacity-0 scale-y-0" : "opacity-100 scale-y-100"}`}
-            />
-            <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
+        <span className="faq-icon flex items-center justify-center shrink-0 w-6 h-6">
+          {isOpen ? (
+            <Minus size={20} strokeWidth={1.5} />
+          ) : (
+            <Plus size={20} strokeWidth={1.5} />
+          )}
         </span>
       </button>
       <div className="faq-content" style={{ height: isOpen ? height : 0 }}>
-        <div ref={contentRef} className="pb-[26px] body-text max-w-[800px]">
+        <div ref={contentRef} className="pb-5 md:pb-[26px] body-text max-w-[800px]">
           {answer}
         </div>
       </div>
@@ -68,9 +66,9 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-white border-t border-black py-[100px]" id="faq">
-      <div className="max-w-[1040px] mx-auto px-10">
-        <div className="text-center mb-[80px]">
+    <section className="bg-white border-t border-black py-12 md:py-[100px]" id="faq">
+      <div className="max-w-[1040px] mx-auto px-5 md:px-10">
+        <div className="text-center mb-10 md:mb-[80px]">
           <h2 className="section-title">Frequently asked questions</h2>
         </div>
 

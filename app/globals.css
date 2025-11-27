@@ -55,13 +55,17 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  font-size: 1.125rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
   border-radius: 50px;
   transition: all 0.2s ease;
   cursor: pointer;
   border: 2px solid transparent;
+  @media (min-width: 768px) {
+    padding: 0.875rem 1.5rem;
+    font-size: 1.125rem;
+  }
 }
 
 @utility btn-dark {
@@ -100,10 +104,13 @@ body {
 }
 
 @utility body-text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
   color: var(--color-cc-dark);
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
 }
 
 @utility nav-link {
@@ -151,18 +158,15 @@ body {
   font-weight: 400;
 }
 
-@utility check-icon {
-  &::before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    border: 1px solid var(--color-cc-dark);
-    border-radius: 50%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 6L5 8L9 4' stroke='%23151515' stroke-width='1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+@utility check-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-cc-dark);
+  border-radius: 50%;
 }
 
 /* Dot pattern background */
