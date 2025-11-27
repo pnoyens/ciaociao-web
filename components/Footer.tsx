@@ -32,7 +32,7 @@ export default function Footer() {
                 <circle cx="22" cy="12" r="3" fill="currentColor" />
                 <path d="M8 20C8 20 12 26 16 26C20 26 24 20 24 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
-              <span className="font-serif font-normal">CiaoCiao</span>
+              <span className="font-serif font-semibold">CiaoCiao</span>
             </Link>
             <p className="font-serif text-xl font-normal italic text-white/70">Stop chasing. Start building your pack.</p>
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
             © 2025 Raamwerk Apps VOF. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-sm font-light text-white/70">
-            <span><span className="font-serif">CiaoCiao</span> is a</span>
+            <span><span className="font-serif font-semibold">CiaoCiao</span> is a</span>
             <a href="https://www.raamwerk.co" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/img/raamwerk-logo-white.webp"

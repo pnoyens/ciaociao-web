@@ -24,7 +24,7 @@ export default function Header() {
               strokeLinecap="round"
             />
           </svg>
-          <span className="font-serif font-normal">CiaoCiao</span>
+          <span className="font-serif font-semibold">CiaoCiao</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-10">
