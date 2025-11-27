@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const footerLinks = {
   navigation: [
-    { label: "Product", href: "#features" },
+    { label: "Product", href: "#socialtemp" },
     { label: "Pricing", href: "#pricing" },
     { label: "Blog", href: "#blog" },
     { label: "About Us", href: "#about" },
