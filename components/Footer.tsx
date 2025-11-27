@@ -34,7 +34,7 @@ export default function Footer() {
               </svg>
               <span>CiaoCiao.social</span>
             </Link>
-            <p className="font-serif text-xl font-normal italic text-white/70">Stop chasing. Start connecting.</p>
+            <p className="font-serif text-xl font-normal italic text-white/70">Stop chasing. Start building your pack.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-10 lg:gap-[80px]">
