@@ -39,60 +39,66 @@ export default function UseCases() {
           <h2 className="section-title">Built for modern GTM teams</h2>
         </div>
 
-        <div className="flex flex-col gap-10">
-          {useCases.map((useCase, index) => (
-            <div
-              key={index}
-              className="border border-black bg-white"
-            >
-              <div className="grid lg:grid-cols-2 min-h-[400px]">
-                {/* Left: Content */}
-                <div className="flex flex-col justify-center p-12 lg:p-16">
-                  <h3 className="font-serif text-3xl lg:text-4xl font-normal text-cc-dark mb-2">
-                    {useCase.title}
-                  </h3>
-                  <p className="font-serif text-xl lg:text-2xl font-normal italic text-cc-grey mb-6">
-                    {useCase.subtitle}
-                  </p>
-                  <p className="body-text max-w-[500px]">
-                    {useCase.description}
-                  </p>
-                </div>
+        <div className="flex flex-col gap-12">
+          {useCases.map((useCase, index) => {
+            const isEven = index % 2 === 0;
 
-                {/* Right: Image placeholder with grid pattern */}
-                <div className="relative border-t lg:border-t-0 lg:border-l border-black overflow-hidden">
-                  {/* Grid pattern background */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundImage: `
-                        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)
-                      `,
-                      backgroundSize: '40px 40px'
-                    }}
-                  />
+            return (
+              <div
+                key={index}
+                className="border border-black bg-white"
+              >
+                <div className={`grid lg:grid-cols-2 min-h-[500px] ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
+                  {/* Content */}
+                  <div className={`flex flex-col justify-center p-12 lg:p-20 ${!isEven ? 'lg:col-start-2' : ''}`}>
+                    <h3 className="font-serif text-4xl lg:text-5xl font-normal text-cc-dark mb-3">
+                      {useCase.title}
+                    </h3>
+                    <p className="font-serif text-2xl lg:text-3xl font-normal italic text-cc-grey mb-8">
+                      {useCase.subtitle}
+                    </p>
+                    <p className="text-xl font-light leading-relaxed text-cc-dark max-w-[520px]">
+                      {useCase.description}
+                    </p>
+                  </div>
 
-                  {/* Placeholder content */}
-                  <div className="relative h-full min-h-[300px] flex items-center justify-center p-8">
-                    {/* Placeholder: Use case illustration */}
-                    <div className={`w-48 h-48 ${useCase.color} rounded-full opacity-30`}></div>
+                  {/* Visual placeholder with grid pattern */}
+                  <div className={`relative overflow-hidden ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+                    {/* Grid pattern background */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `
+                          linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px)
+                        `,
+                        backgroundSize: '32px 32px'
+                      }}
+                    />
 
-                    {/* Stat badge */}
-                    <div className="absolute bottom-8 right-8 bg-cc-5 border border-black px-4 py-3 shadow-sm">
-                      <div className="flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                        <span className="text-3xl font-semibold text-cc-dark">{useCase.stat}</span>
+                    {/* Placeholder content with margin */}
+                    <div className="relative h-full min-h-[350px] flex items-center justify-center p-12 lg:p-16">
+                      {/* Placeholder: Use case illustration */}
+                      <div className={`w-full max-w-[400px] aspect-[4/3] ${useCase.color} flex items-center justify-center border border-black/10`}>
+                        <span className="text-cc-dark/50 text-sm">Image placeholder</span>
                       </div>
-                      <p className="text-sm text-cc-dark mt-1">{useCase.statLabel}</p>
+
+                      {/* Stat badge */}
+                      <div className="absolute bottom-10 right-10 bg-cc-5 border border-black px-5 py-4">
+                        <div className="flex items-center gap-2">
+                          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <span className="text-4xl font-semibold text-cc-dark">{useCase.stat}</span>
+                        </div>
+                        <p className="text-sm text-cc-dark mt-1">{useCase.statLabel}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
