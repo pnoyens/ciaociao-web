@@ -85,6 +85,22 @@ npm run lint     # Run ESLint
 - Responsive breakpoints: `lg:` (1024px), `sm:` (640px)
 - Header is fixed position with h-[75px]
 
+## Images & Visuals
+
+**All images will be provided manually.** When creating components that require images:
+
+- Use placeholder divs with appropriate dimensions and background colors
+- Add descriptive comments indicating what image should go there
+- Use theme colors (e.g., `bg-cc-light`, `bg-cc-6`) for placeholder backgrounds
+
+Example:
+```tsx
+{/* Placeholder: Product screenshot - 600x400 */}
+<div className="w-full aspect-[3/2] bg-cc-light flex items-center justify-center">
+  <span className="text-cc-grey text-sm">Image placeholder</span>
+</div>
+```
+
 ## Do Not
 
 - Add border-radius to cards or content blocks
