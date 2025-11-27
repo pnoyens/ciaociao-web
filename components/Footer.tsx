@@ -32,7 +32,7 @@ export default function Footer() {
                 <circle cx="22" cy="12" r="3" fill="currentColor" />
                 <path d="M8 20C8 20 12 26 16 26C20 26 24 20 24 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
-              <span>CiaoCiao.social</span>
+              <span>CiaoCiao</span>
             </Link>
             <p className="font-serif text-xl font-normal italic text-white/70">Stop chasing. Start building your pack.</p>
           </div>
@@ -81,7 +81,7 @@ export default function Footer() {
 
         <div className="pt-10">
           <p className="text-sm font-light text-white/50">
-            © 2025 Raamwerk Apps VOF. All rights reserved. CiaoCiao.social is a product of Raamwerk.
+            © 2025 Raamwerk Apps VOF. All rights reserved. CiaoCiao is a product of Raamwerk.
           </p>
         </div>
       </div>

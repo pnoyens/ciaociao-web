@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">1. Introduction</h2>
             <p>
-              CiaoCiao.social (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our service.
+              CiaoCiao (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our service.
             </p>
           </section>
 

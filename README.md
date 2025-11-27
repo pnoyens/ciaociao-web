@@ -1,6 +1,6 @@
-# CiaoCiao.social
+# CiaoCiao
 
-Landing page for CiaoCiao.social — a LinkedIn engagement and relationship intelligence tool.
+Landing page for CiaoCiao — a LinkedIn engagement and relationship intelligence tool.
 
 ## Tech Stack
 

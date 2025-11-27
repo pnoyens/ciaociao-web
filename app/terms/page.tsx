@@ -18,14 +18,14 @@ export default function TermsOfService() {
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">1. Acceptance of Terms</h2>
             <p>
-              By accessing or using CiaoCiao.social, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.
+              By accessing or using CiaoCiao, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.
             </p>
           </section>
 
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">2. Description of Service</h2>
             <p>
-              CiaoCiao.social is a LinkedIn engagement and relationship intelligence platform that helps users discover relevant conversations and build meaningful professional relationships.
+              CiaoCiao is a LinkedIn engagement and relationship intelligence platform that helps users discover relevant conversations and build meaningful professional relationships.
             </p>
           </section>
 
@@ -55,7 +55,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">5. Intellectual Property</h2>
             <p>
-              All content, features, and functionality of CiaoCiao.social are owned by Raamwerk Apps VOF and are protected by international copyright, trademark, and other intellectual property laws.
+              All content, features, and functionality of CiaoCiao are owned by Raamwerk Apps VOF and are protected by international copyright, trademark, and other intellectual property laws.
             </p>
           </section>
 
@@ -69,7 +69,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">7. Limitation of Liability</h2>
             <p>
-              CiaoCiao.social and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
+              CiaoCiao and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
             </p>
           </section>
 

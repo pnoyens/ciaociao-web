@@ -1,6 +1,6 @@
-# CiaoCiao.social Style Guide
+# CiaoCiao Style Guide
 
-This document defines the visual design system for CiaoCiao.social. All design decisions should adhere to these guidelines.
+This document defines the visual design system for CiaoCiao. All design decisions should adhere to these guidelines.
 
 ---
 

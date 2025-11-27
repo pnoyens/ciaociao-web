@@ -1,8 +1,8 @@
-# CLAUDE.md - CiaoCiao.social Project Guidelines
+# CLAUDE.md - CiaoCiao Project Guidelines
 
 ## Project Overview
 
-CiaoCiao.social is a landing page for a LinkedIn engagement and relationship intelligence tool. The design follows a minimalist, editorial aesthetic with a focus on clean typography and subtle visual depth.
+CiaoCiao is a landing page for a LinkedIn engagement and relationship intelligence tool. The design follows a minimalist, editorial aesthetic with a focus on clean typography and subtle visual depth.
 
 ## Tech Stack
 

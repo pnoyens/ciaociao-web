@@ -24,7 +24,7 @@ export default function Header() {
               strokeLinecap="round"
             />
           </svg>
-          <span>CiaoCiao.social</span>
+          <span>CiaoCiao</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-10">

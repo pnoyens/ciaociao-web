@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CiaoCiao.social - Connect with your community",
+  title: "CiaoCiao - Connect with your community",
   description: "CiaoCiao helps you discover the right conversations on LinkedIn before you reach out. Our AI guides you to your future customers, turning cold outreach into warm relationships.",
 };
 
