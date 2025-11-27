@@ -84,7 +84,7 @@ export default function Footer() {
             © 2025 Raamwerk Apps VOF. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-sm font-light text-white/70">
-            <span>CiaoCiao is a</span>
+            <span>Proudly crafted by</span>
             <a href="https://www.raamwerk.co" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/img/raamwerk-logo-white.webp"
@@ -94,7 +94,6 @@ export default function Footer() {
                 className="brightness-100 hover:brightness-125 transition-all"
               />
             </a>
-            <span>product.</span>
           </div>
         </div>
       </div>
