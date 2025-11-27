@@ -30,6 +30,7 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-10">
           <Link href="#how-it-works" className="nav-link">How it works</Link>
           <Link href="#use-cases" className="nav-link">Use Cases</Link>
+          <Link href="#testimonials" className="nav-link">Testimonials</Link>
           <Link href="#socialtemp" className="nav-link">SocialTemp™</Link>
           <Link href="#features" className="nav-link">Features</Link>
           <Link href="#pricing" className="nav-link">Pricing</Link>
