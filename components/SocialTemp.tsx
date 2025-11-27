@@ -49,11 +49,9 @@ export default function SocialTemp() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Gauge Visual Placeholder */}
           <div className="flex items-center justify-center">
-            {/* Placeholder: Animated gauge transitioning from cool blue to warm orange - 500x400 */}
-            <div className="w-full max-w-[500px] aspect-[5/4] bg-gradient-to-r from-blue-400 via-sky-300 via-orange-300 to-orange-500 rounded-lg flex items-center justify-center border border-black">
-              <div className="bg-white/90 px-6 py-3 rounded-full">
-                <span className="text-cc-grey text-sm font-medium">Gauge visual placeholder</span>
-              </div>
+            {/* Placeholder: Animated gauge transitioning from cool blue to warm orange */}
+            <div className="w-full h-full max-w-[500px] max-h-[450px] aspect-[5/4] bg-[#e8e4e0] rounded-[20px] flex items-center justify-center">
+              <span className="text-lg font-light text-cc-grey">Image placeholder</span>
             </div>
           </div>
 
