@@ -2,40 +2,68 @@ const features = [
   {
     icon: (
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5 5"/>
-        <path d="M24 10V24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M24 24H38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+        <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M24 14V24L30 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M16 10L14 8M32 10L34 8M24 6V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
     sidebarColor: "bg-cc-peach",
-    title: "Conversion-focused redesigns",
-    description: "Visualise the impact of conversion-focused design with before-and-after mockups of 10 key sections of your site. Get expert recommendations on how to optimize each element for higher engagement.",
-    items: ["Redesign of 10x key sections", "Before-and-After Mockups", "Access to developer-friendly design files"]
+    title: "Brand Intelligence Core",
+    subtitle: "Understand Your DNA.",
+    description: "Provide your website URL, and our AI extracts your core values, keywords, and ideal customer profile. We build the foundation for a winning social strategy tailored to your brand.",
   },
   {
     icon: (
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M15 24L21 30L33 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="24" cy="24" r="10" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M31 31L38 38" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M12 18H18M12 24H16M12 30H18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
     sidebarColor: "bg-cc-gold",
-    title: "Actionable checklist",
-    description: "Get a comprehensive list of practical steps you can take right now to start improving your website's conversion rates. Prioritized recommendations to help you focus on the most impactful changes.",
-    items: ["Up to 40+ actionable fixes", "Top 5 priority fixes list", "Insights for CRO, AOV and UX improvements"]
+    title: "Social Listening Engine",
+    subtitle: "24/7 Conversation Monitoring.",
+    description: "Our engine continuously scans LinkedIn, identifying discussions that matter to your business. We filter thousands of posts to surface only the opportunities worth your attention.",
   },
   {
     icon: (
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="14" stroke="currentColor" strokeWidth="1.5"/>
-        <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M24 8C15.16 8 8 15.16 8 24C8 32.84 15.16 40 24 40C32.84 40 40 32.84 40 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M24 24L36 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         <circle cx="24" cy="24" r="3" fill="currentColor"/>
       </svg>
     ),
+    sidebarColor: "bg-cc-3",
+    title: "SocialTemp™ Score",
+    subtitle: "Relationship Intelligence.",
+    description: "Know exactly how receptive a prospect is to your brand. Our AI-powered scoring gives you the confidence to engage at the optimal moment, maximizing your success rate.",
+  },
+  {
+    icon: (
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="14" width="28" height="20" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M18 22H30M18 28H26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="38" cy="14" r="4" fill="currentColor"/>
+      </svg>
+    ),
+    sidebarColor: "bg-cc-4",
+    title: "Engagement & Action Module",
+    subtitle: "Seamless Integration.",
+    description: "Get AI-powered suggestions for comments and posts. Engage directly from our platform and track engagement metrics as your relationships deepen over time.",
+  },
+  {
+    icon: (
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="8" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M26 26L34 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M30 14L34 10M34 14L30 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="20" cy="20" r="3" stroke="currentColor" strokeWidth="1.5"/>
+      </svg>
+    ),
     sidebarColor: "bg-cc-2",
-    title: "In-depth website analysis",
-    description: "A deep dive into your customer journey, pinpointing the strengths and weaknesses of your home, collection, product, and cart pages. Uncover hidden obstacles and untapped opportunities.",
-    items: ["Navigation and menu audit", "User flow optimization", "Conversion funnel review"]
+    title: "Reverse Lookup",
+    subtitle: "Target Specific Prospects.",
+    description: "Have someone in mind? Add them manually, and we'll use advanced search to find their social activity and calculate their initial SocialTemp™ Score, helping you plan your approach.",
   }
 ];
 
@@ -50,9 +78,9 @@ export default function Features() {
                 <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5"/>
                 <path d="M4 7L6 9L10 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              WHAT&apos;S INCLUDED
+              FEATURES
             </span>
-            <h2 className="section-title max-w-[400px] mx-auto lg:mx-0">A personalized action plan for growth</h2>
+            <h2 className="section-title max-w-[400px] mx-auto lg:mx-0">Intelligent tools for modern GTM</h2>
           </div>
         </div>
 
@@ -64,14 +92,10 @@ export default function Features() {
                   {feature.icon}
                 </div>
               </div>
-              <div className="flex-1 py-5 pr-[30px] flex flex-col gap-4">
+              <div className="flex-1 py-5 pr-[30px] flex flex-col gap-3">
                 <h3 className="font-serif text-[28px] font-semibold text-cc-dark leading-tight">{feature.title}</h3>
-                <p className="text-base font-light leading-normal text-cc-dark">{feature.description}</p>
-                <ul className="flex flex-col gap-2">
-                  {feature.items.map((item, i) => (
-                    <li key={i} className="pill check-icon">{item}</li>
-                  ))}
-                </ul>
+                <p className="text-lg font-medium text-cc-dark">{feature.subtitle}</p>
+                <p className="text-base font-light leading-relaxed text-cc-dark">{feature.description}</p>
               </div>
             </div>
           ))}
