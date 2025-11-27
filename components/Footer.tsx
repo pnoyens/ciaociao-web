@@ -2,11 +2,12 @@ import Link from "next/link";
 
 const footerLinks = {
   navigation: [
-    { label: "Product", href: "#socialtemp" },
+    { label: "How it works", href: "#how-it-works" },
+    { label: "Use Cases", href: "#use-cases" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "SocialTemp™", href: "#socialtemp" },
+    { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Blog", href: "#blog" },
-    { label: "About Us", href: "#about" },
-    { label: "Contact", href: "#contact" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -15,8 +16,6 @@ const footerLinks = {
   ],
   social: [
     { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Twitter", href: "https://twitter.com" },
-    { label: "Instagram", href: "https://instagram.com" },
   ],
 };
 
