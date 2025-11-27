@@ -54,8 +54,8 @@ export default function SocialTemp() {
               <span className="text-lg font-light text-cc-grey">Image placeholder</span>
             </div>
 
-            {/* The SocialTemp Scale - in a box */}
-            <div className="border border-black p-8 max-w-[500px]">
+            {/* The SocialTemp Scale */}
+            <div className="max-w-[500px]">
               <h3 className="font-serif text-xl font-normal text-cc-dark mb-5">The SocialTemp™ Scale:</h3>
               <div className="space-y-3">
                 {scaleItems.map((item, index) => (
