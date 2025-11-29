@@ -1,13 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Archivo_Black, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-const inter = Inter({
+const archivoBlack = Archivo_Black({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-head",
   display: "swap",
-  variable: "--font-inter",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -174,7 +182,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${archivoBlack.variable} ${spaceGrotesk.variable}`}>
         {children}
         <CookieBanner />
         <GoogleAnalytics />

@@ -1,5 +1,7 @@
 import { Star } from "lucide-react";
 import Image from "next/image";
+import { Badge } from "@/components/retroui/Badge";
+import { Text } from "@/components/retroui/Text";
 
 const useCases = [
   {
@@ -24,14 +26,14 @@ const useCases = [
 
 export default function UseCases() {
   return (
-    <section className="bg-cc-6 border-t border-black py-12 md:py-[100px]" id="use-cases">
+    <section className="bg-cc-6 border-t-2 border-border py-12 md:py-[100px]" id="use-cases">
       <div className="max-w-[1380px] mx-auto px-5 md:px-10">
         <div className="text-center mb-10 md:mb-[80px]">
-          <span className="badge bg-cc-2 text-cc-dark mb-5 md:mb-[26px]">
+          <Badge variant="surface" className="mb-5 md:mb-[26px] border-2 border-border">
             <Star size={14} fill="currentColor" />
             USE CASES
-          </span>
-          <h2 className="section-title">Built for modern GTM teams</h2>
+          </Badge>
+          <Text as="h2" className="section-title">Built for modern GTM teams</Text>
         </div>
 
         <div className="flex flex-col gap-6 md:gap-12">
@@ -41,36 +43,36 @@ export default function UseCases() {
             return (
               <div
                 key={index}
-                className="border border-black bg-white"
+                className="border-2 border-border bg-background shadow-lg"
               >
-                <div className={`grid lg:grid-cols-2 lg:min-h-[700px] ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
+                <div className={`grid md:grid-cols-2 md:min-h-[500px] lg:min-h-[700px] ${!isEven ? 'md:grid-flow-dense' : ''}`}>
                   {/* Content */}
-                  <div className={`flex flex-col justify-center p-6 md:p-10 lg:p-16 ${!isEven ? 'lg:col-start-2' : ''}`}>
-                    <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-normal text-cc-dark mb-1 md:mb-2">
+                  <div className={`flex flex-col justify-center p-6 md:p-10 lg:p-16 ${!isEven ? 'md:col-start-2' : ''}`}>
+                    <Text as="h3" className="text-xl md:text-2xl lg:text-3xl mb-1 md:mb-2">
                       {useCase.title}
-                    </h3>
-                    <p className="font-serif text-base md:text-lg lg:text-xl font-normal italic text-cc-grey mb-4 md:mb-6">
+                    </Text>
+                    <p className="text-base md:text-lg lg:text-xl font-normal italic text-muted-foreground mb-4 md:mb-6">
                       {useCase.subtitle}
                     </p>
-                    <p className="text-sm md:text-base font-light leading-relaxed text-cc-dark max-w-[420px]">
+                    <p className="text-sm md:text-base font-normal leading-relaxed text-foreground max-w-[420px]">
                       {useCase.description}
                     </p>
                   </div>
 
                   {/* Visual */}
-                  <div className={`dot-pattern flex items-center justify-center p-4 md:p-12 lg:p-16 h-[280px] md:h-auto ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+                  <div className={`dot-pattern flex items-center justify-center p-4 md:p-8 lg:p-16 min-h-[280px] md:min-h-[400px] ${!isEven ? 'md:col-start-1 md:row-start-1' : ''}`}>
                     {useCase.image ? (
-                      <div className="relative w-full h-full">
+                      <div className="relative w-full h-full min-h-[250px] md:min-h-[350px]">
                         <Image
                           src={useCase.image}
                           alt={useCase.title}
                           fill
-                          className="object-contain rounded-[12px] md:rounded-[20px]"
+                          className="object-contain"
                         />
                       </div>
                     ) : (
-                      <div className="w-full h-full bg-[#e8e4e0] rounded-[12px] md:rounded-[20px] flex items-center justify-center">
-                        <span className="text-base md:text-lg font-light text-cc-grey">Image placeholder</span>
+                      <div className="w-full h-full min-h-[250px] bg-muted flex items-center justify-center">
+                        <span className="text-base md:text-lg font-normal text-muted-foreground">Image placeholder</span>
                       </div>
                     )}
                   </div>

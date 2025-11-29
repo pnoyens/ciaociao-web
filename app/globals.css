@@ -1,43 +1,103 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-/* Tailwind v4 Theme Configuration */
+@custom-variant dark (&:is(.dark *));
+
+/* RetroUI Theme Configuration with CiaoCiao Colors */
 @theme {
-  /* Colors */
-  --color-cc-1: #DCFEBC;
-  --color-cc-2: #BBECFF;
-  --color-cc-3: #FFBA00;
-  --color-cc-4: #E2C6FF;
-  --color-cc-5: #F1EE83;
-  --color-cc-6: #F7F3EF;
+  /* Font families */
+  --font-head: var(--font-head);
+  --font-sans: var(--font-sans);
+  --radius: var(--radius);
+
+  /* RetroUI Shadow System */
+  --shadow-xs: 1px 1px 0 0 var(--border);
+  --shadow-sm: 2px 2px 0 0 var(--border);
+  --shadow: 3px 3px 0 0 var(--border);
+  --shadow-md: 4px 4px 0 0 var(--border);
+  --shadow-lg: 6px 6px 0 0 var(--border);
+  --shadow-xl: 10px 10px 0 1px var(--border);
+  --shadow-2xl: 16px 16px 0 1px var(--border);
+
+  /* Theme color mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+
+  /* CiaoCiao Brand Colors - Sepidy Palette */
+  --color-cc-1: #BAFCA2;
+  --color-cc-2: #87CEEB;
+  --color-cc-3: #FFDB58;
+  --color-cc-4: #C4A1FF;
+  --color-cc-5: #FDFD96;
+  --color-cc-6: #F8D6B3;
   --color-cc-dark: #151515;
   --color-cc-grey: #797979;
-  --color-cc-light: #F7F7F7;
-  --color-cc-peach: #F5C9B8;
-  --color-cc-gold: #F7D681;
-  --color-cc-cream: #FFFDD0;
-  --color-cc-highlight: #FFE8D6;
-  --color-cc-card: #F3F3F3;
-
-  /* Font families */
-  --font-serif: "EB Garamond", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-cc-light: #DAF5F0;
+  --color-cc-peach: #FFA07A;
+  --color-cc-gold: #F4D738;
+  --color-cc-cream: #FDFD96;
+  --color-cc-highlight: #FFC0CB;
+  --color-cc-coral: #FF7A5C;
+  --color-cc-hotpink: #FF69B4;
+  --color-cc-purple: #A388EE;
+  --color-cc-teal: #69D2E7;
+  --color-cc-sage: #7FBC8C;
 }
 
-/* Font Face - EB Garamond */
-@font-face {
-  font-family: 'EB Garamond';
-  src: url('/fonts/EBGaramond12-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/* Light Theme (CiaoCiao adapted) */
+:root {
+  --radius: 0;
+  --background: #fff;
+  --foreground: #151515;
+  --card: #DAF5F0;
+  --card-foreground: #151515;
+  --primary: #FFDB58;
+  --primary-hover: #F4D738;
+  --primary-foreground: #151515;
+  --secondary: #151515;
+  --secondary-foreground: #fff;
+  --muted: #DAF5F0;
+  --muted-foreground: #797979;
+  --accent: #FDFD96;
+  --accent-foreground: #151515;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #fff;
+  --border: #151515;
 }
 
-@font-face {
-  font-family: 'EB Garamond';
-  src: url('/fonts/EBGaramond12-Italic.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+/* Dark Theme */
+.dark {
+  --radius: 0;
+  --background: #1a1a1a;
+  --foreground: #f5f5f5;
+  --card: #242424;
+  --card-foreground: #f5f5f5;
+  --primary: #FFDB58;
+  --primary-hover: #F4D738;
+  --primary-foreground: #151515;
+  --secondary: #3a3a3a;
+  --secondary-foreground: #f5f5f5;
+  --muted: #3f3f46;
+  --muted-foreground: #a0a0a0;
+  --accent: #FDFD96;
+  --accent-foreground: #151515;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #fff;
+  --border: #3a3a3a;
 }
 
 /* Base Styles */
@@ -47,76 +107,105 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-cc-dark);
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+/* Heading font utility */
+.font-head {
+  font-family: var(--font-head);
 }
 
 /* Custom Utilities */
 @utility btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   font-weight: 500;
-  border-radius: 50px;
-  transition: all 0.2s ease;
+  border: 2px solid var(--border);
+  transition: all 0.15s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  box-shadow: 3px 3px 0 0 var(--border);
   @media (min-width: 768px) {
     padding: 0.875rem 1.5rem;
     font-size: 1.125rem;
   }
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--border);
+  }
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 var(--border);
+  }
 }
 
-@utility btn-dark {
-  background-color: var(--color-cc-dark);
-  color: white;
+@utility btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   &:hover {
-    background-color: black;
-    transform: translateY(-2px);
+    background-color: var(--primary-hover);
+  }
+}
+
+@utility btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  &:hover {
+    background-color: #000;
   }
 }
 
 @utility btn-outline {
-  background-color: white;
-  color: var(--color-cc-dark);
-  border-color: var(--color-cc-dark);
+  background-color: var(--background);
+  color: var(--foreground);
   &:hover {
-    background-color: var(--color-cc-light);
+    background-color: var(--muted);
   }
 }
 
 @utility card-shadow {
-  border: 1px solid black;
-  box-shadow: 6px 6px 0 -1px white, 6px 6px 0 0 black;
+  border: 2px solid var(--border);
+  box-shadow: 6px 6px 0 0 var(--border);
 }
 
-@utility card-shadow-cream {
-  border: 1px solid black;
-  box-shadow: 6px 6px 0 -1px var(--color-cc-cream), 6px 6px 0 0 black;
+@utility card-shadow-sm {
+  border: 2px solid var(--border);
+  box-shadow: 3px 3px 0 0 var(--border);
+}
+
+@utility card-shadow-hover {
+  transition: all 0.15s ease;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 0 var(--border);
+  }
 }
 
 @utility section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-head);
   font-size: clamp(2rem, 4vw, 3.375rem);
   font-weight: 400;
-  color: var(--color-cc-dark);
+  color: var(--foreground);
 }
 
 @utility body-text {
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
-  color: var(--color-cc-dark);
+  color: var(--foreground);
   @media (min-width: 768px) {
     font-size: 1.125rem;
   }
 }
 
 @utility nav-link {
-  font-size: 1.125rem;
-  font-weight: 300;
-  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--foreground);
   position: relative;
   &::after {
     content: '';
@@ -124,8 +213,8 @@ body {
     left: 0;
     bottom: -4px;
     width: 100%;
-    height: 1px;
-    background-color: black;
+    height: 2px;
+    background-color: var(--primary);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -141,21 +230,22 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.5px;
+  border: 2px solid var(--border);
 }
 
 @utility pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: white;
+  background-color: var(--background);
   padding: 0.5rem 0.875rem;
-  border-radius: 50px;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 0 var(--border);
 }
 
 @utility check-icon-circle {
@@ -165,14 +255,13 @@ body {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  border: 1px solid var(--color-cc-dark);
-  border-radius: 50%;
+  border: 2px solid var(--border);
 }
 
 /* Dot pattern background */
 @utility dot-pattern {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.15) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
 }
 
 /* Testimonials carousel */
@@ -202,6 +291,12 @@ body {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--color-cc-dark);
+  background-color: var(--foreground);
   transition: all 0.2s ease;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
 }

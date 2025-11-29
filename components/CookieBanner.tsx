@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Button } from "@/components/retroui/Button";
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -27,30 +28,33 @@ export default function CookieBanner() {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 bg-white border-t border-black">
-      <div className="max-w-[1380px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="flex-1">
-          <p className="text-sm md:text-base font-light text-cc-dark">
-            We use cookies to analyze site traffic and improve your experience.
-            By clicking &quot;Accept&quot;, you consent to our use of cookies.{" "}
-            <Link href="/cookies" className="underline hover:text-cc-grey">
-              Learn more
-            </Link>
-          </p>
-        </div>
-        <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={declineCookies}
-            className="px-4 py-2 text-sm font-medium text-cc-dark hover:text-cc-grey transition-colors cursor-pointer"
-          >
-            Decline
-          </button>
-          <button
-            onClick={acceptCookies}
-            className="px-4 py-2 text-sm font-medium bg-cc-dark text-white rounded-full hover:bg-black transition-colors cursor-pointer"
-          >
-            Accept
-          </button>
+    <div className="fixed bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-50">
+      <div className="max-w-[1380px] mx-auto">
+        <div className="bg-background border-2 border-border shadow-lg p-4 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex-1">
+            <p className="text-sm md:text-base font-normal text-foreground">
+              We use cookies to analyze site traffic and improve your experience.
+              By clicking &quot;Accept&quot;, you consent to our use of cookies.{" "}
+              <Link href="/cookies" className="underline hover:text-muted-foreground transition-colors">
+                Learn more
+              </Link>
+            </p>
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            <Button
+              onClick={declineCookies}
+              variant="ghost"
+              size="sm"
+            >
+              Decline
+            </Button>
+            <Button
+              onClick={acceptCookies}
+              size="sm"
+            >
+              Accept
+            </Button>
+          </div>
         </div>
       </div>
     </div>

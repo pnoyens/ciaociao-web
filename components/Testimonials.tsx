@@ -3,10 +3,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { Badge } from "@/components/retroui/Badge";
+import { Text } from "@/components/retroui/Text";
+import { Button } from "@/components/retroui/Button";
 
 const testimonials = [
   {
-    quote: "We used to spend hours manually searching for relevant conversations. CiaoCiao brings them straight to us, and the SocialTemp™ Score tells us exactly when to engage. Our conversion rates have doubled.",
+    quote: "We used to spend hours manually searching for relevant conversations. CiaoCiao brings them straight to us, and the SocialTemp Score tells us exactly when to engage. Our conversion rates have doubled.",
     name: "Sarah Martinez",
     role: "Marketing Manager, TechFlow",
     image: "/img/testimonials/sarah-martinez.jpg",
@@ -97,14 +100,14 @@ export default function Testimonials() {
   const realIndex = ((currentIndex - 1) % numOriginal + numOriginal) % numOriginal;
 
   return (
-    <section className="bg-cc-6 border-t border-black py-12 md:py-[100px] overflow-hidden" id="testimonials">
+    <section className="bg-cc-6 border-t-2 border-border py-12 md:py-[100px] overflow-hidden" id="testimonials">
       <div className="max-w-[1380px] mx-auto px-5 md:px-10">
         <div className="text-center mb-10 md:mb-[80px]">
-          <span className="badge bg-cc-dark text-white mb-5 md:mb-[26px]">
+          <Badge variant="solid" className="mb-5 md:mb-[26px]">
             <Star size={14} fill="currentColor" />
             TRUSTED BY MODERN GTM TEAMS
-          </span>
-          <h2 className="section-title">Helping teams like yours build real relationships</h2>
+          </Badge>
+          <Text as="h2" className="section-title">Helping teams like yours build real relationships</Text>
         </div>
       </div>
 
@@ -121,16 +124,16 @@ export default function Testimonials() {
           {extendedTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`flex flex-col p-6 md:p-10 border border-black shrink-0 transition-colors duration-300 ${
-                index === currentIndex ? "bg-cc-highlight" : "bg-white"
+              className={`flex flex-col p-6 md:p-10 border-2 border-border shrink-0 transition-colors duration-300 ${
+                index === currentIndex ? "bg-cc-highlight shadow-lg" : "bg-background shadow-md"
               }`}
               style={{ width: `${cardWidth}vw` }}
             >
-              <p className="font-serif text-base md:text-xl font-normal leading-relaxed text-cc-dark mb-6 md:mb-10 grow">
+              <p className="font-head text-base md:text-xl font-normal leading-relaxed text-foreground mb-6 md:mb-10 grow">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-cc-light shrink-0 relative overflow-hidden">
+                <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 relative overflow-hidden border-2 border-border">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
@@ -139,8 +142,8 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <p className="text-base md:text-lg font-medium text-cc-dark">{testimonial.name}</p>
-                  <p className="text-xs md:text-sm font-light text-cc-grey">{testimonial.role}</p>
+                  <p className="text-base md:text-lg font-medium text-foreground">{testimonial.name}</p>
+                  <p className="text-xs md:text-sm font-normal text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -150,32 +153,34 @@ export default function Testimonials() {
 
       <div className="max-w-[1380px] mx-auto px-5 md:px-10">
         <div className="flex items-center justify-center gap-4 md:gap-[26px] mt-8 md:mt-10">
-          <button
+          <Button
             onClick={handlePrev}
-            className="flex items-center justify-center w-11 h-11 border border-black rounded-full bg-white text-cc-dark cursor-pointer hover:bg-cc-light transition-colors"
+            variant="outline"
+            size="icon"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={24} strokeWidth={1.5} />
-          </button>
+          </Button>
           <div className="flex items-center gap-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index + 1, true)}
-                className={`w-2.5 h-2.5 rounded-full border border-cc-dark p-0 cursor-pointer transition-colors ${
-                  index === realIndex ? "bg-cc-dark" : "bg-transparent"
+                className={`w-2.5 h-2.5 border-2 border-border p-0 cursor-pointer transition-colors ${
+                  index === realIndex ? "bg-foreground" : "bg-transparent"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
-          <button
+          <Button
             onClick={handleNext}
-            className="flex items-center justify-center w-11 h-11 border border-black rounded-full bg-white text-cc-dark cursor-pointer hover:bg-cc-light transition-colors"
+            variant="outline"
+            size="icon"
             aria-label="Next testimonial"
           >
             <ChevronRight size={24} strokeWidth={1.5} />
-          </button>
+          </Button>
         </div>
       </div>
     </section>

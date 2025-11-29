@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Text } from "@/components/retroui/Text";
 
 const analyzeItems = [
   {
@@ -46,9 +47,9 @@ const scaleItems = [
 
 export default function SocialTemp() {
   return (
-    <section className="bg-white border-t border-black py-12 md:py-[100px]" id="socialtemp">
+    <section className="bg-background border-t-2 border-border py-12 md:py-[100px]" id="socialtemp">
       <div className="max-w-[1380px] mx-auto px-5 md:px-10">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-start">
           {/* Left: Gauge Visual Placeholder + Scale Box */}
           <div className="flex flex-col gap-8">
             {/* Gauge visual */}
@@ -63,14 +64,14 @@ export default function SocialTemp() {
 
             {/* The SocialTemp Scale */}
             <div className="max-w-[500px]">
-              <h3 className="font-serif text-xl font-normal text-cc-dark mb-5">The SocialTemp™ scale:</h3>
+              <Text as="h3" className="text-xl mb-5">The SocialTemp scale:</Text>
               <div className="space-y-3">
                 {scaleItems.map((item, index) => (
                   <div key={index} className="flex gap-3 items-start">
-                    <div className={`w-3 h-3 rounded-full ${item.color} mt-1.5 shrink-0 border border-black/20`}></div>
+                    <div className={`w-3 h-3 ${item.color} mt-1.5 shrink-0 border-2 border-border`}></div>
                     <div>
-                      <span className="font-medium text-sm text-cc-dark">{item.range}:</span>{" "}
-                      <span className="font-light text-sm text-cc-dark">{item.description}</span>
+                      <span className="font-medium text-sm text-foreground">{item.range}:</span>{" "}
+                      <span className="font-normal text-sm text-foreground">{item.description}</span>
                     </div>
                   </div>
                 ))}
@@ -80,22 +81,22 @@ export default function SocialTemp() {
 
           {/* Right: Content */}
           <div>
-            <h2 className="section-title mb-4 md:mb-6">Know when the moment is right.</h2>
+            <Text as="h2" className="section-title mb-4 md:mb-6">Know when the moment is right.</Text>
             <p className="body-text mb-8 md:mb-10">
-              In modern business, timing is everything. The SocialTemp™ Score is our proprietary AI metric
+              In modern business, timing is everything. The SocialTemp Score is our proprietary AI metric
               that measures how receptive a prospect is to your brand. Stop guessing and start knowing.
             </p>
 
             {/* What We Analyze */}
             <div>
-              <h3 className="font-serif text-2xl font-normal text-cc-dark mb-6">What we analyze:</h3>
+              <Text as="h3" className="text-2xl mb-6">What we analyze:</Text>
               <div className="space-y-4">
                 {analyzeItems.map((item, index) => (
                   <div key={index} className="flex gap-3">
-                    <div className="w-2 h-2 rounded-full bg-cc-dark mt-2.5 shrink-0"></div>
+                    <div className="w-2 h-2 bg-foreground mt-2.5 shrink-0"></div>
                     <div>
-                      <span className="font-medium text-cc-dark">{item.title}:</span>{" "}
-                      <span className="font-light text-cc-dark">{item.description}</span>
+                      <span className="font-medium text-foreground">{item.title}:</span>{" "}
+                      <span className="font-normal text-foreground">{item.description}</span>
                     </div>
                   </div>
                 ))}

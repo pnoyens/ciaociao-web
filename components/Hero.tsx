@@ -1,15 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/retroui/Button";
+import { Text } from "@/components/retroui/Text";
 
 export default function Hero() {
   return (
-    <section className="pt-[120px] pb-[60px] md:pt-[155px] md:pb-[120px] min-h-screen bg-white dot-pattern">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-[60px] max-w-[1380px] mx-auto px-5 md:px-10 items-center">
-        <div className="max-w-[560px] lg:max-w-none text-left mx-auto lg:mx-0">
-          <h1 className="font-serif text-[clamp(32px,5vw,68px)] font-normal leading-tight text-cc-dark mb-8 md:mb-[26px]">
+    <section className="pt-[120px] pb-[60px] md:pt-[155px] md:pb-[120px] min-h-screen bg-background dot-pattern">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-[60px] max-w-[1380px] mx-auto px-5 md:px-10 items-center">
+        <div className="max-w-[560px] md:max-w-none text-left mx-auto md:mx-0">
+          <Text as="h1" className="text-[clamp(32px,5vw,68px)] leading-tight mb-8 md:mb-[26px]">
             Stop chasing. Start building your pack.
-          </h1>
+          </Text>
           <p className="body-text mb-10 md:mb-10 max-w-[480px]">
             CiaoCiao helps you discover the right conversations on LinkedIn
             before you reach out. Our AI guides you to your future customers,
@@ -17,13 +19,15 @@ export default function Hero() {
             just your pipeline.
           </p>
           <div className="flex flex-wrap gap-3 justify-start">
-            <Link href="#get-started" className="btn btn-dark">
-              Start for FREE
-              <ArrowUpRight size={16} />
-            </Link>
-            <Link href="#pricing" className="btn btn-outline">
-              View pricing
-            </Link>
+            <Button asChild size="lg">
+              <Link href="#get-started">
+                Start for FREE
+                <ArrowUpRight size={18} />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="#pricing">View pricing</Link>
+            </Button>
           </div>
         </div>
 

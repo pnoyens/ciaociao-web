@@ -1,32 +1,37 @@
-# CiaoCiao Style Guide
+# CiaoCiao Style Guide — RetroUI Edition
 
-This document defines the visual design system for CiaoCiao. All design decisions should adhere to these guidelines.
+This document defines the visual design system for CiaoCiao, built on **RetroUI** with customized CiaoCiao brand colors.
 
 ---
 
 ## Implementation
 
-This project uses **Tailwind CSS v4** with custom theme configuration. All design tokens are defined in `app/globals.css` using the `@theme` directive.
+This project uses:
+- **Tailwind CSS v4** with `@theme` configuration
+- **RetroUI** component library (via shadcn CLI)
+- **CiaoCiao brand colors** integrated into the RetroUI theme
 
-### Custom Utility Classes
+### RetroUI Components
 
-The following utility classes are available via `@utility` in globals.css:
+Components are installed in `components/retroui/`:
 
-| Class | Purpose |
-|-------|---------|
-| `btn` | Base button styling |
-| `btn-dark` | Dark button variant |
-| `btn-outline` | Outline button variant |
-| `card-shadow` | Offset shadow effect for cards |
-| `card-shadow-cream` | Cream-colored offset shadow |
-| `section-title` | Section heading typography |
-| `body-text` | Body text styling |
-| `nav-link` | Navigation link with underline animation |
-| `badge` | Badge/tag styling |
-| `pill` | Pill-shaped tag |
-| `check-icon` | Checkmark icon pseudo-element |
-| `dot-pattern` | Dot grid background pattern |
-| `hide-scrollbar` | Hide scrollbar utility |
+| Component | Usage |
+|-----------|-------|
+| `Button` | Primary actions, CTAs, navigation |
+| `Card` | Content containers, feature cards, pricing cards |
+| `Text` | Typography with heading styles |
+| `Badge` | Labels, tags, category indicators |
+| `Accordion` | FAQ sections, expandable content |
+
+### Import Pattern
+
+```tsx
+import { Button } from "@/components/retroui/Button";
+import { Card } from "@/components/retroui/Card";
+import { Text } from "@/components/retroui/Text";
+import { Badge } from "@/components/retroui/Badge";
+import { Accordion } from "@/components/retroui/Accordion";
+```
 
 ---
 
@@ -34,121 +39,207 @@ The following utility classes are available via `@utility` in globals.css:
 
 ### Font Families
 
-| Usage | Font Family | Tailwind Class | Fallbacks |
-|-------|-------------|----------------|-----------|
-| Headings & Titles | EB Garamond | `font-serif` | Georgia, "Times New Roman", serif |
-| Body Text | Inter | `font-sans` | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif |
+| Usage | Font Family | CSS Variable | Tailwind Class |
+|-------|-------------|--------------|----------------|
+| Headings & Titles | Archivo Black | `--font-head` | `font-head` |
+| Body Text | Space Grotesk | `--font-sans` | `font-sans` |
+
+Fonts are loaded via Next.js `next/font/google` in `layout.tsx`.
+
+### Text Component
+
+Use the `Text` component for headings:
+
+```tsx
+<Text as="h1">Hero Heading</Text>
+<Text as="h2" className="section-title">Section Title</Text>
+<Text as="h3">Card Title</Text>
+```
 
 ### Font Weights
 
 | Element | Weight | Tailwind Class |
 |---------|--------|----------------|
-| Body text / Descriptions | 300 (Light) | `font-light` |
-| Navigation links | 300 (Light) | `font-light` |
-| Card titles | 600 (Semi-bold) | `font-semibold` |
-| Section titles | 400 (Regular) | `font-normal` |
-| Buttons | 500 (Medium) | `font-medium` |
-
-### Font Sizes
-
-Use Tailwind's built-in text size classes or custom values:
-
-| Size | Tailwind Class | Usage |
-|------|----------------|-------|
-| 68px | `text-7xl` or custom | Hero titles |
-| 54px | `text-5xl` or custom | Section titles |
-| 34px | `text-3xl` | Large text |
-| 28px | `text-2xl` | Card titles |
-| 24px | `text-xl` | Medium headings |
-| 20px | `text-lg` | Subheadings |
-| 18px | `text-lg` | Body text |
-| 14px | `text-sm` | Small text, badges, pills |
-
-### Line Heights
-
-| Usage | Tailwind Class |
-|-------|----------------|
-| Headings | `leading-tight` (1.1) |
-| Default | `leading-normal` (1.4) |
-| Body text | `leading-relaxed` (1.6) |
+| Body text | 400 (Normal) | `font-normal` |
+| Emphasis | 500 (Medium) | `font-medium` |
+| Buttons | 500 (Medium) | Built into Button component |
+| Headings | 400-700 | Built into Text component |
 
 ---
 
 ## Color Palette
 
-All colors are defined in the `@theme` block with the `cc-` prefix.
+Based on the **Sepidy Color Palette** - a vibrant, playful collection perfect for the RetroUI aesthetic.
 
-### Primary Colors
+### Theme Colors (RetroUI integrated)
+
+| Variable | Light Value | Usage |
+|----------|-------------|-------|
+| `--background` | `#fff` | Page background |
+| `--foreground` | `#151515` | Primary text |
+| `--primary` | `#FFDB58` | Primary buttons, accents |
+| `--primary-hover` | `#F4D738` | Button hover state |
+| `--secondary` | `#151515` | Dark buttons, footer |
+| `--muted` | `#DAF5F0` | Subtle backgrounds |
+| `--muted-foreground` | `#797979` | Secondary text |
+| `--accent` | `#FDFD96` | Highlights |
+| `--border` | `#151515` | All borders |
+| `--card` | `#DAF5F0` | Card backgrounds |
+| `--destructive` | `#FF6B6B` | Error states |
+
+### CiaoCiao Brand Colors (Sepidy Palette)
+
+**Primary Colors:**
 
 | Name | Hex | Tailwind Class | Usage |
 |------|-----|----------------|-------|
-| Color 1 (Green) | `#DCFEBC` | `bg-cc-1`, `text-cc-1` | Accents, highlights |
-| Color 2 (Blue) | `#BBECFF` | `bg-cc-2`, `text-cc-2` | Backgrounds, badges, sidebars |
-| Color 3 (Yellow/Orange) | `#FFBA00` | `bg-cc-3`, `text-cc-3` | Icons, accents |
-| Color 4 (Lavender) | `#E2C6FF` | `bg-cc-4`, `text-cc-4` | Icons, accents |
-| Color 5 (Yellow) | `#F1EE83` | `bg-cc-5`, `text-cc-5` | Stat cards, highlights |
-| Color 6 (Beige) | `#F7F3EF` | `bg-cc-6`, `text-cc-6` | Section backgrounds |
+| Green | `#BAFCA2` | `bg-cc-1` | CTA backgrounds |
+| Sky Blue | `#87CEEB` | `bg-cc-2` | Badges, feature sidebars |
+| Golden Yellow | `#FFDB58` | `bg-cc-3` | Primary color, icons |
+| Lavender | `#C4A1FF` | `bg-cc-4` | Section backgrounds |
+| Light Yellow | `#FDFD96` | `bg-cc-5` | Highlights, accents |
+| Peach | `#F8D6B3` | `bg-cc-6` | Section backgrounds |
 
-### Neutral Colors
+**Accent Colors:**
 
 | Name | Hex | Tailwind Class | Usage |
 |------|-----|----------------|-------|
-| Black | `#000000` | `border-black`, `text-black` | Borders, text emphasis |
-| Dark Grey | `#151515` | `bg-cc-dark`, `text-cc-dark` | Primary text, buttons |
+| Salmon | `#FFA07A` | `bg-cc-peach` | Feature sidebars |
+| Gold | `#F4D738` | `bg-cc-gold` | Feature sidebars |
+| Cream | `#FDFD96` | `bg-cc-cream` | Featured cards |
+| Pink | `#FFC0CB` | `bg-cc-highlight` | Active states |
+| Coral | `#FF7A5C` | `bg-cc-coral` | Warm accents |
+| Hot Pink | `#FF69B4` | `bg-cc-hotpink` | Bold accents |
+| Purple | `#A388EE` | `bg-cc-purple` | Cool accents |
+| Teal | `#69D2E7` | `bg-cc-teal` | Cool highlights |
+| Sage | `#7FBC8C` | `bg-cc-sage` | Nature tones |
+
+**Neutral Colors:**
+
+| Name | Hex | Tailwind Class | Usage |
+|------|-----|----------------|-------|
+| Light Mint | `#DAF5F0` | `bg-cc-light` | Subtle backgrounds |
+| Dark | `#151515` | `bg-cc-dark` | Text, borders |
 | Grey | `#797979` | `text-cc-grey` | Secondary text |
-| Light Grey | `#F7F7F7` | `bg-cc-light` | Subtle backgrounds |
-| White | `#FFFFFF` | `bg-white`, `text-white` | Primary background |
 
-### Component-Specific Colors
+### Full Sepidy Palette Reference
 
-| Component | Color | Tailwind Class |
-|-----------|-------|----------------|
-| Card background | `#F3F3F3` | `bg-cc-card` |
-| Peach sidebar | `#F5C9B8` | `bg-cc-peach` |
-| Yellow sidebar | `#F7D681` | `bg-cc-gold` |
-| Cream | `#FFFDD0` | `bg-cc-cream` |
-| Highlight | `#FFE8D6` | `bg-cc-highlight` |
+```
+Row 1 (Lightest):
+#DAF5F0  #B5D2AD  #FDFD96  #F8D6B3  #FCDFF   #E3DFF2
+
+Row 2:
+#A7DBD8  #BAFCA2  #FFDB58  #FFA07A  #FFC0CB  #C4A1FF
+
+Row 3:
+#87CEEB  #90EE90  #F4D738  #FF7A5C  #FFB2EF  #A388EE
+
+Row 4 (Most Saturated):
+#69D2E7  #7FBC8C  #E3A018  #FF6B6B  #FF69B4  #9723C9
+```
 
 ---
 
 ## Borders & Shadows
 
+### RetroUI Shadow System
+
+All shadows use offset box-shadow with `--border` color:
+
+| Tailwind | CSS | Usage |
+|----------|-----|-------|
+| `shadow-xs` | `1px 1px 0 0 var(--border)` | Minimal depth |
+| `shadow-sm` | `2px 2px 0 0 var(--border)` | Small elements |
+| `shadow` | `3px 3px 0 0 var(--border)` | Default shadow |
+| `shadow-md` | `4px 4px 0 0 var(--border)` | Buttons, badges |
+| `shadow-lg` | `6px 6px 0 0 var(--border)` | Cards |
+| `shadow-xl` | `10px 10px 0 1px var(--border)` | Large cards |
+
 ### Border Style
 
-- **Weight**: 1px solid — use `border border-black`
-- **Color**: Black (`#000000`)
-- **Corners**: Sharp/square (no border-radius) for cards and content blocks — use `rounded-none`
+- **Width**: 2px solid — use `border-2 border-border`
+- **Color**: Uses `--border` (dark grey `#151515`)
+- **Corners**: Sharp/square (no border-radius) — `--radius: 0`
 
-### Offset Shadow Border
+---
 
-Cards use a distinctive double-border shadow effect. Use the `card-shadow` utility class:
+## Components
+
+### Button
+
+RetroUI Button with offset shadow and hover animations:
 
 ```tsx
-<div className="card-shadow bg-cc-card">
-  {/* Card content */}
-</div>
+// Primary (default)
+<Button asChild size="lg">
+  <Link href="#cta">Get Started</Link>
+</Button>
+
+// Outline
+<Button variant="outline" size="md">Learn More</Button>
+
+// Secondary (dark)
+<Button variant="secondary">Contact Sales</Button>
 ```
 
-Or apply manually:
-```css
-border: 1px solid black;
-box-shadow: 6px 6px 0 -1px white, 6px 6px 0 0 black;
+**Variants**: `default`, `secondary`, `outline`, `link`, `ghost`
+**Sizes**: `sm`, `md`, `lg`, `icon`
+
+### Card
+
+```tsx
+<Card className="p-6">
+  <Card.Header>
+    <Card.Title>Feature Title</Card.Title>
+    <Card.Description>Description text</Card.Description>
+  </Card.Header>
+  <Card.Content>
+    {/* Content */}
+  </Card.Content>
+</Card>
+```
+
+### Badge
+
+```tsx
+<Badge variant="solid">HOW IT WORKS</Badge>
+<Badge variant="surface" className="border-2 border-border">FEATURES</Badge>
+```
+
+**Variants**: `default`, `outline`, `solid`, `surface`
+
+### Accordion (FAQ)
+
+```tsx
+<Accordion type="single" collapsible className="flex flex-col gap-4">
+  <Accordion.Item value="item-1">
+    <Accordion.Header>Question?</Accordion.Header>
+    <Accordion.Content>Answer text here.</Accordion.Content>
+  </Accordion.Item>
+</Accordion>
 ```
 
 ---
 
-## Spacing Scale
+## Custom Utilities
 
-Use Tailwind's spacing utilities. Common values:
+Defined in `app/globals.css`:
 
-| Tailwind | Value | Usage |
-|----------|-------|-------|
-| `p-1`, `m-1` | 4px | Minimal spacing |
-| `p-3`, `m-3` | 12px | Small spacing |
-| `p-6`, `m-6` | 24px | Medium spacing |
-| `p-10`, `m-10` | 40px | Large spacing |
-| `py-16` | 64px | Section padding |
-| `py-20` | 80px | Large section padding |
+| Class | Purpose |
+|-------|---------|
+| `btn` | Base button (custom utility) |
+| `btn-primary` | Yellow/orange button |
+| `btn-secondary` | Dark button |
+| `btn-outline` | Outline button |
+| `card-shadow` | 6px offset shadow |
+| `card-shadow-sm` | 3px offset shadow |
+| `section-title` | Section heading with font-head |
+| `body-text` | Body paragraph styling |
+| `nav-link` | Navigation link with underline |
+| `badge` | Custom badge styling |
+| `pill` | Pill-shaped tag with shadow |
+| `dot-pattern` | Dot grid background |
+| `hide-scrollbar` | Hide scrollbar utility |
 
 ---
 
@@ -156,168 +247,63 @@ Use Tailwind's spacing utilities. Common values:
 
 ### Container Widths
 
-Use Tailwind's `max-w-*` classes:
-
 | Tailwind Class | Width | Usage |
 |----------------|-------|-------|
-| `max-w-7xl` | 1280px | Default container |
-| `max-w-5xl` | 1024px | Medium container |
-| `max-w-3xl` | 768px | Narrow container |
+| `max-w-[1380px]` | 1380px | Main content container |
+| `max-w-[1040px]` | 1040px | FAQ section |
+| `max-w-[780px]` | 780px | CTA section |
 
 ### Grid Patterns
 
-| Section | Tailwind Classes | Description |
-|---------|------------------|-------------|
-| Hero | `grid lg:grid-cols-2` | Equal split |
-| Insights | `grid lg:grid-cols-2` | Equal split with colored left panel |
-| How It Works | `grid md:grid-cols-3` | Three equal columns |
-| Features | `grid lg:grid-cols-[1fr_2fr]` | Narrow left (sticky), wide right |
-
-### Sticky Positioning
-
-Left-side titles in scrolling sections use sticky positioning:
-```tsx
-<div className="lg:sticky lg:top-24">
-  {/* Sticky title content */}
-</div>
-```
-
----
-
-## Components
-
-### Buttons
-
-**Primary/Dark Button** — use `btn btn-dark`
-```tsx
-<button className="btn btn-dark">
-  Get Started
-</button>
-```
-
-**Outline Button** — use `btn btn-outline`
-```tsx
-<button className="btn btn-outline">
-  Learn More
-</button>
-```
-
-### Navigation
-
-Use the `nav-link` utility class:
-```tsx
-<a href="#features" className="nav-link">Features</a>
-```
-- Font weight: 300 (light)
-- Hover effect: Underline slides in from left
-
-### Cards (Feature Cards)
-
-Use `card-shadow` with `bg-cc-card`:
-```tsx
-<div className="bg-cc-card card-shadow">
-  <div className="flex">
-    <div className="w-24 bg-cc-peach flex items-center justify-center">
-      {/* Icon */}
-    </div>
-    <div className="p-6">
-      <h3 className="font-serif text-xl font-semibold">{title}</h3>
-      <p className="body-text">{description}</p>
-    </div>
-  </div>
-</div>
-```
-
-**Card Structure:**
-- Colored sidebar with icon container
-- Content area with title, description, and pill list
-- Pills stacked vertically
-
-### Pills/Tags
-
-Use the `pill` utility class:
-```tsx
-<span className="pill check-icon">{text}</span>
-```
-
-### Badges
-
-Use the `badge` utility class:
-```tsx
-<span className="badge bg-cc-2">
-  <Icon /> Label
-</span>
-```
-
----
-
-## Background Patterns
-
-### Hero Dot Pattern
-
-Use the `dot-pattern` utility class:
-```tsx
-<div className="dot-pattern">
-  {/* Content with dot background */}
-</div>
-```
-
----
-
-## Icons
-
-- Style: Line/outline style (SVG)
-- Stroke width: 1.5px - 2.5px
-- Color: Inherits from parent (`currentColor`)
-- Contained in colored boxes or circles
-
-```tsx
-<div className="w-12 h-12 bg-white rounded flex items-center justify-center">
-  <svg className="w-6 h-6" strokeWidth="1.5">...</svg>
-</div>
-```
-
----
-
-## Section Dividers
-
-- 1px solid black horizontal lines — use `border-t border-black`
-- No decorative bars or colored dividers between main sections
+| Section | Classes |
+|---------|---------|
+| Hero | `grid lg:grid-cols-2` |
+| Features | `grid lg:grid-cols-[1fr_2fr]` |
+| How It Works | `grid lg:grid-cols-3` |
+| Pricing | `grid lg:grid-cols-3` |
 
 ---
 
 ## Responsive Breakpoints
 
-Tailwind breakpoint prefixes:
-
-| Prefix | Min Width | Usage |
-|--------|-----------|-------|
-| `sm:` | 640px | Mobile adjustments |
-| `md:` | 768px | Tablet portrait |
-| `lg:` | 1024px | Tablet landscape / Desktop |
-| `xl:` | 1280px | Large desktop |
-
-### Mobile Adaptations
-
-- Navigation collapses to hamburger menu at `lg:` breakpoint
-- Grid layouts become single column on mobile (use `lg:grid-cols-*`)
-- Cards stack vertically
-- Sticky elements become static (use `lg:sticky`)
-
-```tsx
-{/* Example responsive grid */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-  {/* Items */}
-</div>
-```
+| Prefix | Min Width |
+|--------|-----------|
+| `sm:` | 640px |
+| `md:` | 768px |
+| `lg:` | 1024px |
+| `xl:` | 1280px |
 
 ---
 
 ## Design Principles
 
-1. **Minimalist**: Clean, uncluttered layouts with generous whitespace
-2. **Editorial**: Serif headings (EB Garamond) give a sophisticated, editorial feel
-3. **Sharp & Modern**: Square corners on cards contrast with pill-shaped buttons
-4. **Subtle Depth**: Offset shadow borders add dimension without being heavy
-5. **Light Typography**: 300 weight body text for an airy, readable feel
-6. **Colorful Accents**: Bright, friendly colors used sparingly for sidebars and highlights
+1. **Bold & Retro**: Sharp corners, offset shadows, chunky borders
+2. **Playful Typography**: Archivo Black headings create visual impact
+3. **High Contrast**: Dark borders on light backgrounds
+4. **Interactive Feedback**: Buttons move on hover/click with shadow changes
+5. **CiaoCiao Colors**: Bright, friendly accent colors for sidebars and highlights
+6. **Consistent Spacing**: 2px borders, consistent padding patterns
+
+---
+
+## Quick Reference
+
+### Section Background Pattern
+
+```tsx
+// Standard section
+<section className="bg-background border-t-2 border-border py-12 md:py-[100px]">
+
+// Colored section
+<section className="bg-cc-6 border-t-2 border-border py-12 md:py-[100px]">
+```
+
+### Adding Icons
+
+```tsx
+import { IconName } from "lucide-react";
+
+<div className="w-12 h-12 border-2 border-border bg-cc-2 flex items-center justify-center">
+  <IconName size={24} strokeWidth={1.5} />
+</div>
+```
