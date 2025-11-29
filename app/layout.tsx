@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -186,6 +187,7 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <GoogleAnalytics />
+        <Analytics />
       </body>
     </html>
   );
