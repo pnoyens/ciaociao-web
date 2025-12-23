@@ -5,7 +5,7 @@ const footerLinks = {
   navigation: [
     { label: "Use cases", href: "#use-cases" },
     { label: "How it works", href: "#how-it-works" },
-    { label: "Testimonials", href: "#testimonials" },
+    // { label: "Testimonials", href: "#testimonials" },
     { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
   ],
@@ -15,8 +15,8 @@ const footerLinks = {
     { label: "Cookie policy", href: "/cookies" },
   ],
   social: [
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Email", href: "mailto:info@raamwerk.co" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/ciaociaosocial/" },
+    { label: "Email", href: "mailto:requests@ciaociao.social" },
   ],
 };
 

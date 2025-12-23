@@ -86,7 +86,7 @@ export default function CookiePolicy() {
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">7. Contact Us</h2>
             <p>
-              If you have any questions about our use of cookies, please contact us at privacy@ciaociao.social.
+              If you have any questions about our use of cookies, please contact us at requests@ciaociao.social.
             </p>
           </section>
         </div>

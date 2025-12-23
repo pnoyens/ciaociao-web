@@ -8,7 +8,7 @@ import { Button } from "@/components/retroui/Button";
 const navLinks = [
   { href: "#use-cases", label: "Use cases" },
   { href: "#how-it-works", label: "How it works" },
-  { href: "#testimonials", label: "Testimonials" },
+  // { href: "#testimonials", label: "Testimonials" },
   { href: "#features", label: "Features" },
   { href: "#pricing", label: "Pricing" },
 ];
@@ -20,7 +20,7 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b-2 border-border">
+    <header className="fixed top-[40px] left-0 right-0 z-50 bg-background border-b-2 border-border">
       <div className="flex items-center justify-between max-w-[1380px] mx-auto px-5 md:px-10 h-[75px]">
         <Link href="/" className="flex items-center gap-3 text-2xl text-foreground">
           <Image
@@ -42,7 +42,7 @@ export default function Header() {
         </nav>
 
         <Button asChild size="sm" className="hidden lg:inline-flex">
-          <Link href="#get-started">Get started FREE</Link>
+          <a href="mailto:requests@ciaociao.social?subject=Early%20Bird%20Access%20Request%20-%2014-Day%20Free%20Trial%20%2B%2030%25%20Discount">Get started FREE</a>
         </Button>
 
         <button
@@ -58,7 +58,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-[75px] bg-background z-40 transition-transform duration-300 ${
+        className={`lg:hidden fixed inset-0 top-[115px] bg-background z-40 transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -74,9 +74,9 @@ export default function Header() {
             </Link>
           ))}
           <Button asChild className="mt-6 justify-center">
-            <Link href="#get-started" onClick={closeMenu}>
+            <a href="mailto:requests@ciaociao.social?subject=Early%20Bird%20Access%20Request%20-%2014-Day%20Free%20Trial%20%2B%2030%25%20Discount" onClick={closeMenu}>
               Get started FREE
-            </Link>
+            </a>
           </Button>
         </nav>
       </div>

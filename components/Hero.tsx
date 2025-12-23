@@ -6,7 +6,7 @@ import { Text } from "@/components/retroui/Text";
 
 export default function Hero() {
   return (
-    <section className="pt-[120px] pb-[60px] md:pt-[155px] md:pb-[120px] min-h-screen bg-background dot-pattern relative">
+    <section className="pt-[160px] pb-[60px] md:pt-[195px] md:pb-[120px] min-h-screen bg-background dot-pattern relative">
       {/* Gradient overlay to fade dot pattern - vertical on mobile, horizontal on desktop */}
       <div className="absolute inset-0 bg-[linear-gradient(to_top,transparent_0%,transparent_40%,var(--background)_60%)] md:bg-[linear-gradient(to_left,transparent_0%,transparent_50%,var(--background)_65%)] pointer-events-none" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-[60px] max-w-[1380px] mx-auto px-5 md:px-10 items-center relative">
@@ -22,15 +22,18 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap gap-3 justify-start">
             <Button asChild size="lg">
-              <Link href="#get-started">
+              <a href="mailto:requests@ciaociao.social?subject=Early%20Bird%20Access%20Request%20-%2014-Day%20Free%20Trial%20%2B%2030%25%20Discount">
                 Start for FREE
                 <ArrowUpRight size={18} />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="#pricing">View pricing</Link>
             </Button>
           </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Early bird: 14-day free trial + 30% off for early adopters
+          </p>
         </div>
 
         <div className="relative h-[280px] md:h-[400px] lg:h-[600px] flex items-center justify-center">

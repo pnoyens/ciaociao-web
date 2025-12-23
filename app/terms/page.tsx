@@ -90,7 +90,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="font-serif text-2xl font-normal text-cc-dark mb-4">10. Contact Us</h2>
             <p>
-              If you have any questions about these Terms of Service, please contact us at legal@ciaociao.social.
+              If you have any questions about these Terms of Service, please contact us at requests@ciaociao.social.
             </p>
           </section>
         </div>
